@@ -69,3 +69,9 @@ altura= altura*4
 print(f"Mi altura multiplicada por 4 es de {altura} m")
 altura= altura/3
 print(f"Mi altura luego de multiplicarla por 4 y dividirla por 3 equivale a {altura} m")
+
+#Ejercicio 15
+nombre_mayus = "MATIAS LIMINA"
+nombre_minus = nombre_mayus.lower()
+print(f"Mi nombre en mayúsculas: {nombre_mayus}")
+print(f"Mi nombre en minúsculas: {nombre_minus}")
