@@ -53,3 +53,11 @@ nombre = "Matias"
 apellido = "Limina"
 nombre_completo = nombre + " " + apellido
 print (f"Mi nombre completo es {nombre_completo}")
+
+#Ejercicio 13
+edad = 25
+print (f"Mi edad es {edad}")
+edad = edad - 5
+print (f"Mi edad mas 5 es de {edad}")
+edad = edad + 10
+print(f"Mi edad luego de restarle 5 y sumarle 10 es de {edad}")
