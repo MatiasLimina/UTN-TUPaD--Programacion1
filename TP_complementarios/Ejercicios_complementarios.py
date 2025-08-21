@@ -29,3 +29,7 @@ print(f"El precio del articulo x es de: ${precio}")
 #Ejercicio 7 
 descuento = 0.25
 print(f"Hay un descuento disponible de %{descuento*100}")
+
+#Ejercicio 8
+precio_final = (precio*descuento)
+print(f"El precio final del producto x que costaba ${precio}, al aplicarle un descuento de {descuento*100} es de ${precio_final}")
