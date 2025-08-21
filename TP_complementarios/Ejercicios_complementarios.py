@@ -25,3 +25,7 @@ print(f"Mi nombre es {nombre}")
 #Ejercicio 6
 precio = 45.50
 print(f"El precio del articulo x es de: ${precio}")
+
+#Ejercicio 7 
+descuento = 0.25
+print(f"Hay un descuento disponible de %{descuento*100}")
