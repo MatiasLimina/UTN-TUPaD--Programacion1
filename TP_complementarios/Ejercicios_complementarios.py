@@ -48,3 +48,8 @@ print(precio)
 precio = int(precio)
 print(precio)
 
+#Ejercicio 12
+nombre = "Matias"
+apellido = "Limina"
+nombre_completo = nombre + " " + apellido
+print (f"Mi nombre completo es {nombre_completo}")
