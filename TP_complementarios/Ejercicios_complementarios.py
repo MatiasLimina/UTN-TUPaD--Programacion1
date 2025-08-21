@@ -23,3 +23,5 @@ nombre="Matias"
 print(f"Mi nombre es {nombre}")
 
 #Ejercicio 6
+precio = 45.50
+print(f"El precio del articulo x es de: ${precio}")
