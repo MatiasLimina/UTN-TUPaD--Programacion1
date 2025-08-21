@@ -61,3 +61,11 @@ edad = edad - 5
 print (f"Mi edad mas 5 es de {edad}")
 edad = edad + 10
 print(f"Mi edad luego de restarle 5 y sumarle 10 es de {edad}")
+
+#Ejercicio 14
+altura = 1.80
+print(f"Mi altura es de {altura} m")
+altura= altura*4
+print(f"Mi altura multiplicada por 4 es de {altura} m")
+altura= altura/3
+print(f"Mi altura luego de multiplicarla por 4 y dividirla por 3 equivale a {altura} m")
