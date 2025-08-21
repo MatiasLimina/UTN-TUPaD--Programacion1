@@ -33,6 +33,11 @@ print(f"Hay un descuento disponible de %{descuento*100}")
 #Ejercicio 8
 precio_final = (precio*descuento)
 print(f"El precio final del producto x que costaba ${precio}, al aplicarle un descuento de {descuento*100} es de ${precio_final}")
+
 #Ejercicio 9
 cadena = "Aguante el rojo"
 print(cadena)
+
+#Ejercicio 10
+longitud = len(cadena)
+print(f"La longitud de la string contenido en la variable cadena es de: {longitud}")
