@@ -75,3 +75,7 @@ nombre_mayus = "MATIAS LIMINA"
 nombre_minus = nombre_mayus.lower()
 print(f"Mi nombre en mayúsculas: {nombre_mayus}")
 print(f"Mi nombre en minúsculas: {nombre_minus}")
+
+#Ejercicio 16
+nombre_mayus= nombre_mayus.capitalize()
+print(f"Mi nombre con la primera letra en mayúscula: {nombre_mayus}")
