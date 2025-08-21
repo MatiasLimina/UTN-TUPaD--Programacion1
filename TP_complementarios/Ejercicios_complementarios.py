@@ -41,3 +41,10 @@ print(cadena)
 #Ejercicio 10
 longitud = len(cadena)
 print(f"La longitud de la string contenido en la variable cadena es de: {longitud}")
+
+#Ejercicio 11
+precio = 12.12
+print(precio)
+precio = int(precio)
+print(precio)
+
