@@ -1,5 +1,2 @@
-print ("Ingrese la fecha: dia/DD/MM")
-dia:str = input()
-DD:int = input()
-MM:int = input()
-
+fecha:str = input("Ingrese la fecha")
+print(dia)
