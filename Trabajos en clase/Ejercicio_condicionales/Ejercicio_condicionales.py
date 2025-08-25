@@ -34,6 +34,8 @@ if MM.isnumeric():
 else:
     print("No es num")
 
+DD = int(DD)
+MM = int(MM)
 dia_semana = ["lunes","martes","miercoles","jueves","viernes","sabado","domingo"]
 
 if not dia in dia_semana:
@@ -41,3 +43,27 @@ if not dia in dia_semana:
 
 if DD>0 and DD<=31:
     print("Fecha valida")
+
+if MM>0 and MM<=12:
+    print("Mes valido")
+
+if dia == "lunes" or "martes" or "miercoles":
+    examenes = input("Se realizaron examenes? ")
+    examenes = examenes.lower()
+    if examenes == "si":
+        cant_aprobados = int(input("Ingrese la cantidad de alumnos que aprobaron: "))
+        cant_desaprobados = int(input("Ingrese la cantidad de alumnos desaprobados: "))
+        total_alumnos = cant_aprobados + cant_desaprobados
+        porcentaje_aprob = (cant_aprobados/total_alumnos)*100
+        print(f"El porcentaje de alumnos aprobados es de %{porcentaje_aprob}.")
+
+if dia == "jueves":
+    porcentaje_asist = int (input("Ingrese el procentaje de asistencia a su clase: "))
+    if porcentaje_asist > 50:
+        print("Asistio la mayoria")
+    else:
+        print("No asistio la mayoria")
+
+if dia == "viernes":
+    if (DD == 1 and MM==01) or (DD == 1 and MM == 07):
+        print("Comienzo de nuevo ciclo")
