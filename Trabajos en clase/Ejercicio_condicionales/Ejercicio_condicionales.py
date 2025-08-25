@@ -47,7 +47,7 @@ if DD>0 and DD<=31:
 if MM>0 and MM<=12:
     print("Mes valido")
 
-if dia == "lunes" or "martes" or "miercoles":
+if dia == ("lunes" or "martes" or "miercoles" ):
     examenes = input("Se realizaron examenes? ")
     examenes = examenes.lower()
     if examenes == "si":
@@ -65,5 +65,9 @@ if dia == "jueves":
         print("No asistio la mayoria")
 
 if dia == "viernes":
-    if (DD == 1 and MM==01) or (DD == 1 and MM == 07):
+    if (DD == 1 and MM==1) or (DD == 1 and MM == 7):
         print("Comienzo de nuevo ciclo")
+        nuevos_alumnos = int(input("Ingrese cant de nuevos alumnos: "))
+        arancel = int(input("Ingrese el arancel de los nuevos alumnos: "))
+        total_ganancia= nuevos_alumnos*arancel
+        print (f"Las ganancias totales por nuevos alumnos es de ${total_ganancia}")
