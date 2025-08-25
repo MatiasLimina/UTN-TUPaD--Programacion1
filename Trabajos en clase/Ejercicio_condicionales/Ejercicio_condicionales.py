@@ -33,3 +33,11 @@ if MM.isnumeric():
     print("Es numero")
 else:
     print("No es num")
+
+dia_semana = ["lunes","martes","miercoles","jueves","viernes","sabado","domingo"]
+
+if not dia in dia_semana:
+    print("Ingrese un dia valido")
+
+if DD>0 and DD<=31:
+    print("Fecha valida")
