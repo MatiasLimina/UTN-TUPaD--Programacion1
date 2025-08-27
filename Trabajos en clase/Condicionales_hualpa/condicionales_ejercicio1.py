@@ -2,4 +2,9 @@
 nombre = input("Ingrese su nombre")
 apellido = input("Ingrese su apellido")
 nombre_apellido = nombre +" "+ apellido
-edad = int(input("Ingrese su edad"))
+edad = input("Ingrese su edad")
+if edad.isdigit() :
+    print("Edad valida")
+else:
+    print("Ingrese un valor valido")
+
