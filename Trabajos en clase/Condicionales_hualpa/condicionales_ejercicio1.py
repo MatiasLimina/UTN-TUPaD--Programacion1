@@ -16,6 +16,13 @@ if promedio.isdigit():
         print("Usted ingreso un promedio valido")
     else:
         print("Ingrese un valor valido")
-
 else:
     print("Ingrese un valor valido")
+
+ingreso_familiar = input("Indique el ingreso total de su grupo familiar")
+if ingreso_familiar.isdigit() :
+    print("Numero valido")
+else:
+    print("Ingrese un valor valido")
+
+
