@@ -61,3 +61,20 @@ if ultima_letra == "a" or ultima_letra == "e" or ultima_letra == "i" or ultima_l
     print(frase+"!")
 else:
     print(frase)
+
+#Ejercicio 8
+nombre = input("Ingrese su nombre: ")
+print ("Eliga entre: ")
+print ("1. Si quiere su nombre en mayúsculas. Por ejemplo: PEDRO.")
+print ("2. Si quiere su nombre en minúsculas. Por ejemplo: pedro")
+print ("3. Si quiere su nombre con la primera letra mayúscula. Por ejemplo: Pedro")
+opc = int(input("Eliga una opcion: "))
+
+if opc == 1:
+    print(nombre.upper())
+elif opc == 2:
+    print(nombre.lower())
+elif opc == 3:
+    print(nombre.title())
+else:
+    print("Opción inválida")
