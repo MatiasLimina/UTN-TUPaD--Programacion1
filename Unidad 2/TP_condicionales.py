@@ -94,3 +94,27 @@ elif terremoto>=6 and terremoto<7:
     print("Muy Fuerte (puede causar daños significativos)")
 elif terremoto>=7:
     print("Extremo (puede causar graves daños a gran escala)")
+
+#Ejercicio 10
+hemisferio = input("Ingrese en que hemisferio se encuentra(S para Sur y N para norte) ").upper()
+mes = input("Ingrese el mes del año ").lower()
+dia = int(input("Ingrese el dia "))
+
+if hemisferio == "S":
+    if (mes == "diciembre" and dia >=21) or mes == "enero" or mes == "febrero" or (mes == "marzo" and dia<=20):
+        print("Verano")
+    elif (mes == "marzo" and dia>=21) or mes == "abril" or mes == "mayo" or (mes=="junio" and dia<=20):
+        print("Otoño")
+    elif (mes == "junio" and dia>=21) or mes == "julio" or mes == "agosto" or (mes=="septiembre" and dia<=20):
+        print("Invierno")
+    elif (mes == "septiembre" and dia>=21) or mes == "octubre" or mes == "noviembre" or (mes=="diciembre" and dia<=20):
+        print("Primavera")
+elif hemisferio == "N":
+    if (mes == "diciembre" and dia >=21) or mes == "enero" or mes == "febrero" or (mes == "marzo" and dia<=20):
+        print("Invierno")
+    elif (mes == "marzo" and dia>=21) or mes == "abril" or mes == "mayo" or (mes=="junio" and dia<=20):
+        print("Primavera")
+    elif (mes == "junio" and dia>=21) or mes == "julio" or mes == "agosto" or (mes=="septiembre" and dia<=20):
+        print("Verano")
+    elif (mes == "septiembre" and dia>=21) or mes == "octubre" or mes == "noviembre" or (mes=="diciembre" and dia<=20):
+        print("Otoño")     
