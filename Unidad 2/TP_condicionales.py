@@ -29,3 +29,11 @@ elif edad_2 >=18 and edad_2<=30:
     print("Adulto/a joven")
 else:
     print("Adulto/a")
+
+#Ejercicio 5
+contraseña = input("Ingrese su contraseña(Debe contener entre 8 y 14 caracteres): ")
+long_contra = len(contraseña)
+if long_contra>=8 and long_contra<=14:
+    print("Ha ingresado una contraseña correcta")
+else:
+    print("Por favor, ingrese una contraseña de entre 8 y 14 caracteres")
