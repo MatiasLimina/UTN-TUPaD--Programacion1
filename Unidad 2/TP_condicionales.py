@@ -78,3 +78,19 @@ elif opc == 3:
     print(nombre.title())
 else:
     print("Opción inválida")
+
+#Ejercicio 9
+terremoto = int(input("Ingrese la magnitud de un terremoto: "))
+
+if terremoto<3:
+    print("Muy leve (imperceptible)")
+elif terremoto>=3 and terremoto<4:
+    print("Leve (ligeramente perceptible)")
+elif terremoto>=4 and terremoto<5:
+    print("Moderado (sentido por personas, pero generalmente no causa daños)")
+elif terremoto>=5 and terremoto<6:
+    print("Fuerte (puede causar daños en estructuras débiles)")
+elif terremoto>=6 and terremoto<7:
+    print("Muy Fuerte (puede causar daños significativos)")
+elif terremoto>=7:
+    print("Extremo (puede causar graves daños a gran escala)")
