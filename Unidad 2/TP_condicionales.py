@@ -5,8 +5,10 @@ if edad >= 18:
 
 #Ejercicio 2
 nota = int(input("Ingrese su nota: "))
-if nota>=6:
+if nota>=6 and nota <=10:
     print("Aprobado")
+elif nota > 10:
+    print("Ingrese una nota valida")
 else:
     print("Desaprobado")
 
