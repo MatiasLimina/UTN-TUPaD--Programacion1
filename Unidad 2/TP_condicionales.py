@@ -50,3 +50,9 @@ elif mean(numeros_aleatorios)<median(numeros_aleatorios) and median(numeros_alea
     print("Sesgo negativo a la izquierda")
 elif mean(numeros_aleatorios) == median(numeros_aleatorios) == mode(numeros_aleatorios):
     print("Sin sesgo")
+
+#Ejercicio 7
+frase = input("Ingrese una frase: ")
+long_frase = len(frase)
+ultima_letra =frase[long_frase-1:long_frase]
+print(f"Ultima letra: {ultima_letra}")
