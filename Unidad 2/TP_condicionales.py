@@ -56,3 +56,8 @@ frase = input("Ingrese una frase: ")
 long_frase = len(frase)
 ultima_letra =frase[long_frase-1:long_frase]
 print(f"Ultima letra: {ultima_letra}")
+
+if ultima_letra == "a" or ultima_letra == "e" or ultima_letra == "i" or ultima_letra == "o" or ultima_letra == "u":
+    print(frase+"!")
+else:
+    print(frase)
