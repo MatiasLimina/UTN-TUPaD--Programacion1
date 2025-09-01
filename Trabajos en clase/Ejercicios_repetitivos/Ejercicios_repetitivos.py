@@ -1,3 +1,4 @@
+#Ejercicio "for"
 abecedario = "abcdefghijklmnñopqrstuvwxyz"
 encriptado = int(input("De cuantos lugares desea correr las letras"))
 
