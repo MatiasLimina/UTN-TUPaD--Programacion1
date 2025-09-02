@@ -9,9 +9,9 @@ else:
     print("Ingrese un valor valido")
 
 promedio = input("Ingrese su promedio general")
-print(type(promedio))
+
 promedio=float(promedio)
-print(type(promedio))
+
 if promedio>= 0 and promedio<=10:
     print("Usted ingreso un promedio valido")
 else:
@@ -24,7 +24,7 @@ if ingreso_familiar.isdigit() :
 else:
     print("Ingrese un valor valido")
 
-print(f"{nombre_apellido}, edad: {edad}, con un promedio de {promedio} y un ingreso total")
+print(f"{nombre_apellido}, edad: {edad}, con un promedio de {promedio} y un ingreso total de ${ingreso_familiar}")
 #Promedio
 
 if promedio<6:
