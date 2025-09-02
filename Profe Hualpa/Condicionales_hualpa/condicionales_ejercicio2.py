@@ -2,12 +2,15 @@
 nombre = input("Ingrese su nombre completo ").title()
 dni = input("Ingrese su DNI sin puntos ")
 len_dni = len(dni)
-if len_dni != 11 :
+if len_dni != 8 :
     print ("Usted no ingreso un DNI válido")
 
 edad = int(input("Ingrese su edad "))
-obra_social = input("Tiene obra social?  SI / NO").upper()
+obra_social = input("Tiene obra social?  SI / NO ").upper()
 prioridad = int(input("Prioridad médica: 1) Emergencia  2) Urgente  3) Control "))
+
+print(f"Paciente: {nombre} \n DNI: {dni} \n Edad: {edad} \n Obra social: {obra_social} \n Nivel de prioridad: {prioridad}" )
+
 
 if prioridad == 1 :
     print("Usted a sido asignado a la guardia")
