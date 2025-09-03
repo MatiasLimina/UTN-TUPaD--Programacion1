@@ -9,4 +9,10 @@ nota3 = int(input("Ingrese su tercer nota "))
 promedio = (nota1+nota2+nota3)/3
 
 if nota1 < 4 or nota2 < 4 or nota3 < 4:
-    print(f"Alumno: {nombre} \n Legajo: {legajo} \n  ")
+    print(f"Alumno: {nombre} \n Legajo: {legajo} \n DESAPROBADO DIRECTO ")
+elif promedio<6 :
+    print(f"Alumno: {nombre} \n Legajo: {legajo} \n Promedio: {promedio} \n DESAPROBADO ")
+elif promedio>=6 and promedio<=7:
+    print(f"Alumno: {nombre} \n Legajo: {legajo} \n Promedio: {promedio} \n APROBADO CON FINAL ")
+else:
+    print(f"Alumno: {nombre} \n Legajo: {legajo} \n Promedio: {promedio} \n PROMOCIONADO ")
