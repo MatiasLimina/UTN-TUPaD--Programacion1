@@ -13,3 +13,21 @@ while patente_valida == False:
     else:
         print("Ingrese una patente válida")
 print("Usted ingreso una patente válida")
+
+#Ingresar una patente y sumarle la enesima 
+
+nueva_patente = int(input("Ingrese cuantas patentes mas sumar y buscar en el sistema"))
+
+for l1 in abc:
+    print (l1)
+    for l2 in abc:
+        print (l2)
+        for l3 in abc:
+            print(l3)
+            for n1 in range(0,10):
+                print (n1)
+                for n2 in range(0,10):
+                    print (n2)
+                    for n3 in range(0,10):
+                        print (n3)
+
