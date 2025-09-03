@@ -16,3 +16,5 @@ elif promedio>=6 and promedio<=7:
     print(f"Alumno: {nombre} \n Legajo: {legajo} \n Promedio: {promedio} \n APROBADO CON FINAL ")
 else:
     print(f"Alumno: {nombre} \n Legajo: {legajo} \n Promedio: {promedio} \n PROMOCIONADO ")
+
+#Trate de usar colorama para meterle color a lo que muestra en la terminal pero no logre hacerlo andar dsp de 25 min tratando de arreglarlo, dice q no encuentra el modulo
