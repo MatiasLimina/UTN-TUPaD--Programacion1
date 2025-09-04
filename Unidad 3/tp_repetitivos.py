@@ -3,6 +3,14 @@ for i in range(101):
     print (i)
     break
 
+#Ejercicio 2
+num_digitos = int(input("Ingrese un número entero "))
+long_num = len(str(num_digitos))
+cant_digitos = 0
+for i in range(long_num):
+    cant_digitos += 1
+print (f"La cantidad de digitos en el número {num_digitos} es de {cant_digitos}")
+
 
 
 
