@@ -1,3 +1,103 @@
+#Ejercicio 1
+for i in range(101):
+    print (i)
+    break
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #Ejercicio 8
 #Ejercicio realizado con ayuda del profe Hualpa
 
@@ -16,7 +116,6 @@ def principal():
     cont_negativo = 0
     for i in range(0,CANT_NUMEROS):
         lista_numeros.insert(i,(random.randint(-100,100)))
-        print(lista_numeros[i])
         if es_par(lista_numeros[i]):
             cont_par += 1
         elif es_impar(lista_numeros[i]):
