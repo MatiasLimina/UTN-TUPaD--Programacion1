@@ -19,24 +19,24 @@ while monto_positivo == False:
         print("No puede ingresar un monto negativo")
 
 modo_pago = input("Ingrese el modo en el que va a pagar : efectivo  debito credito mercadopago ").lower()
-efectivo = monto-(monto*0.15)
-debito = monto-(monto*0.10)
-credito = monto+(monto*0.05)
-mercado_pago= monto -(monto*0.20)
+efectivo = (monto*0.15)
+debito = (monto*0.10)
+credito = (monto*0.05)
+mercado_pago= (monto*0.20)
 importe_final = 0
 if modo_pago == "efectivo":
     importe_final = monto - efectivo
-    print(f"Usted recibira un descuento del 15%")
+    print(f"Usted recibira un descuento del 15%, equivalente a ${efectivo}")
 elif modo_pago == "debito":
     importe_final = monto - debito
-    print(f"Usted recibira un descuento del 10%")
+    print(f"Usted recibira un descuento del 10%, equivalente a ${debito}")
 elif modo_pago == "credito":
     importe_final = monto + credito
-    print(f"Usted tendar un recargo del 5%")
+    print(f"Usted tendar un recargo del 5%, equivalente a ${credito}")
 elif modo_pago == "mercadopago":
     if monto > 10000:
         importe_final = monto - mercado_pago
-        print(f"Usted recibira un descuento del 20%")
+        print(f"Usted recibira un descuento del 20%, equivalente a ${mercado_pago}")
     else:
         importe_final=monto
 
