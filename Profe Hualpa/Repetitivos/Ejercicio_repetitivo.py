@@ -18,16 +18,16 @@ print("Usted ingreso una patente válida")
 
 nueva_patente = int(input("Ingrese cuantas patentes mas sumar y buscar en el sistema"))
 
-for l1 in abc:
-    print (l1)
-    for l2 in abc:
-        print (l2)
-        for l3 in abc:
-            print(l3)
-            for n1 in range(0,10):
-                print (n1)
-                for n2 in range(0,10):
-                    print (n2)
-                    for n3 in range(0,10):
-                        print (n3)
+#Funciones para mover letras y numeros
+def move_alphabet(start_letter, steps):
+    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    start_index = alphabet.index(start_letter.upper())
+    new_index = (start_index + steps) % len(alphabet)
+    return alphabet[new_index]
 
+def move_number(start_number, steps):
+    start_number = int(start_number)
+    new_number = (start_number + steps) % 10
+    return str(new_number)
+
+# Generar nueva patente
