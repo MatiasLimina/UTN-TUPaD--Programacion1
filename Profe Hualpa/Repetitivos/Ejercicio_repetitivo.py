@@ -31,5 +31,5 @@ for l1 in abc:
                         patente_2 = abc[n1] + abc[n2] + abc[n2] + str(n1) + str(n2) + str(n3)
                         contador += 1
                         if contador == nueva_patente:
-                            print(f"La nueva patente es {patente_2}")
+                            print(f"La nueva patente es {patente_2.upper()}")
                             break
