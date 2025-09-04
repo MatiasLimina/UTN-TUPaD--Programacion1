@@ -11,6 +11,13 @@ for i in range(long_num):
     cant_digitos += 1
 print (f"La cantidad de digitos en el número {num_digitos} es de {cant_digitos}")
 
+#Ejercicio 3 
+num_entero1 = int(input("Ingrese un número entero "))
+num_entero2 = int(input("Ingrese un número entero "))
+suma_enteros = 0
+for i in range(num_entero1+1,num_entero2):
+    suma_enteros += i
+print (f"La suma de todos los números comprendidos entre {num_entero1} y {num_entero2} es de {suma_enteros}")
 
 
 
