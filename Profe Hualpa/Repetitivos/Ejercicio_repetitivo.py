@@ -17,17 +17,19 @@ print("Usted ingreso una patente válida")
 #Ingresar una patente y sumarle la enesima 
 
 nueva_patente = int(input("Ingrese cuantas patentes mas sumar y buscar en el sistema"))
+patente_2 = ""
 
-#Funciones para mover letras y numeros
-def move_alphabet(start_letter, steps):
-    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    start_index = alphabet.index(start_letter.upper())
-    new_index = (start_index + steps) % len(alphabet)
-    return alphabet[new_index]
-
-def move_number(start_number, steps):
-    start_number = int(start_number)
-    new_number = (start_number + steps) % 10
-    return str(new_number)
 
 # Generar nueva patente
+contador = 0
+for l1 in abc:
+    for l2 in abc:
+        for l3 in abc:
+            for n1 in range(10):
+                for n2 in range(10):
+                    for n3 in range(10):
+                        patente_2 = abc[n1] + abc[n2] + abc[n2] + str(n1) + str(n2) + str(n3)
+                        contador += 1
+                        if contador == nueva_patente:
+                            print(f"La nueva patente es {patente_2}")
+                            break
