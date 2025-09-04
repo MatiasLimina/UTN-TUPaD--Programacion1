@@ -21,15 +21,23 @@ patente_2 = ""
 
 
 # Generar nueva patente
-contador = 0
-for l1 in abc:
-    for l2 in abc:
-        for l3 in abc:
-            for n1 in range(10):
-                for n2 in range(10):
-                    for n3 in range(10):
-                        patente_2 = abc[n1] + abc[n2] + abc[n2] + str(n1) + str(n2) + str(n3)
-                        contador += 1
-                        if contador == nueva_patente:
-                            print(f"La nueva patente es {patente_2.upper()}")
-                            break
+# Convert patente ingresada a un número secuencial
+def patente_a_num(patente):
+    letras = patente[:2]
+    numeros = patente[2:]
+    num_letras = (abc.index(letras[0]) * 26) + abc.index(letras[1])
+    num_total = num_letras * 10000 + int(numeros)
+    return num_total
+
+# Convertir número secuencial a patente
+def num_a_patente(num):
+    num_letras = num // 10000
+    numeros = num % 10000
+    l1 = abc[num_letras // 26]
+    l2 = abc[num_letras % 26]
+    return f"{l1}{l2}{numeros:04d}".upper()
+
+patente_num = patente_a_num(patente)
+nueva_patente_num = patente_num + nueva_patente
+patente_2 = num_a_patente(nueva_patente_num)
+print(f"La nueva patente es {patente_2}")
