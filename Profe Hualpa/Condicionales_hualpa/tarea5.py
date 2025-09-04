@@ -10,4 +10,11 @@ while pos_prod == False:
     else:
         print ("No puede ingresar un número negativo de productos comprados")
 
+monto_positivo = False
+while monto_positivo == False:
+    monto = float(input("Ingrese el monto total de la compra "))
+    if monto > 0:
+        monto_positivo=True
+    else:
+        print("No puede ingresar un monto negativo")
 
