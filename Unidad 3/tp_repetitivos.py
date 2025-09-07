@@ -1,3 +1,4 @@
+import random
 #Ejercicio 1
 for i in range(101):
     print (i)
@@ -30,6 +31,20 @@ while cancelar != 0:
     print (f"La suma secuencial de los números ingresados hasta ahora es de: {suma_sec}")
 print (f"El resultado final de la suma es de: {suma_sec}")
 
+#Ejercicio 5
+
+intentos = 0
+num_azar = random.randint(0,9)
+num_jugador = 10
+while num_azar != num_jugador:
+    num_jugador = int(input("Ingrese un número entre el 0 y el 9 "))
+    intentos += 1
+    if num_jugador == num_azar:
+        print("Felicitaciones, acertaste!")
+    else:
+        print("Mala suerte, vuelva a intentar")
+print (f"Usted requirio {intentos} intentos para acertar el número que era {num_azar}")
+
 
 
 
@@ -42,7 +57,7 @@ def es_par(n):
 
 def es_impar(n):
     return (n%2 != 0 )
-import random
+
 CANT_NUMEROS = 100
 lista_numeros = []
 def principal():
