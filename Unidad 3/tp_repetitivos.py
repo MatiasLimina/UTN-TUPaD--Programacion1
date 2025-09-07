@@ -1,5 +1,6 @@
 import random
 #Ejercicio 1
+
 for i in range(101):
     print (i)
     break
@@ -51,8 +52,12 @@ for i in range(100,-1,-1):
     print (i)
     break
 
-
-
+#Ejercicio 7
+rango_max = int(input("Hasta que entero positivo desea sumar "))
+suma_rango = 0
+for i in range(0,rango_max+1):
+    suma_rango += i
+print(f"La suma de todos los enteros comprendidos entre 0 y {rango_max} es de {suma_rango}")
 
 #Ejercicio 8
 #Ejercicio realizado con ayuda del profe Hualpa
