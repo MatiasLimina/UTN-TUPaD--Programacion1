@@ -45,6 +45,11 @@ while num_azar != num_jugador:
         print("Mala suerte, vuelva a intentar")
 print (f"Usted requirio {intentos} intentos para acertar el número que era {num_azar}")
 
+#Ejercicio 6
+
+for i in range(100,-1,-1):
+    print (i)
+    break
 
 
 
