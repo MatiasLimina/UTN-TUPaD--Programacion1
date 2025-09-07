@@ -3,7 +3,7 @@ import random
 
 for i in range(101):
     print (i)
-    break
+
 
 #Ejercicio 2
 num_digitos = int(input("Ingrese un número entero "))
@@ -33,7 +33,7 @@ while cancelar != 0:
 print (f"El resultado final de la suma es de: {suma_sec}")
 
 #Ejercicio 5
-"""
+
 intentos = 0
 num_azar = random.randint(0,9)
 num_jugador = 10
@@ -45,7 +45,7 @@ while num_azar != num_jugador:
     else:
         print("Mala suerte, vuelva a intentar")
 print (f"Usted requirio {intentos} intentos para acertar el número que era {num_azar}")
-"""
+
 #Ejercicio 6
 
 for i in range(100,-1,-1):
@@ -92,7 +92,7 @@ principal()
 
 #Ejercicio 9
 suma_media = 0
-media_rango = 5
+media_rango = 100
 
 
 for i in range(media_rango):
@@ -100,3 +100,11 @@ for i in range(media_rango):
     suma_media += num_media
 media = suma_media / media_rango
 print (f"La media de los números ingresados por el usuario es de {media}")
+
+#Ejercicio 9
+num_original = input("Ingrese un número para invertir ")
+num_len = len(num_original)
+num_invertido = ""
+for i in range(num_len-1,-1,-1):
+    num_invertido = num_invertido + num_original[i]
+print (f"La version invertida del num {num_original} es {num_invertido}")
