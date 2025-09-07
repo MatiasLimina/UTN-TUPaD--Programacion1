@@ -19,95 +19,16 @@ for i in range(num_entero1+1,num_entero2):
     suma_enteros += i
 print (f"La suma de todos los números comprendidos entre {num_entero1} y {num_entero2} es de {suma_enteros}")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#Ejercicio 4
+
+cancelar = 1
+suma_sec= 0
+while cancelar != 0:
+    num_sec = int(input("Ingrese un número entero, para cancelar ingrese 0: "))
+    suma_sec += num_sec
+    cancelar = num_sec
+    print (f"La suma secuencial de los números ingresados hasta ahora es de: {suma_sec}")
+print (f"El resultado final de la suma es de: {suma_sec}")
 
 
 
