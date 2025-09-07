@@ -33,7 +33,7 @@ while cancelar != 0:
 print (f"El resultado final de la suma es de: {suma_sec}")
 
 #Ejercicio 5
-
+"""
 intentos = 0
 num_azar = random.randint(0,9)
 num_jugador = 10
@@ -45,7 +45,7 @@ while num_azar != num_jugador:
     else:
         print("Mala suerte, vuelva a intentar")
 print (f"Usted requirio {intentos} intentos para acertar el número que era {num_azar}")
-
+"""
 #Ejercicio 6
 
 for i in range(100,-1,-1):
@@ -89,3 +89,14 @@ def principal():
     print(f"Números positivos: {cont_positivo} \n Números negativos: {cont_negativo} \n Números pares: {cont_par} \n Números impares: {cont_impar}")
 
 principal()
+
+#Ejercicio 9
+suma_media = 0
+media_rango = 5
+
+
+for i in range(media_rango):
+    num_media =int(input("Ingrese un número "))
+    suma_media += num_media
+media = suma_media / media_rango
+print (f"La media de los números ingresados por el usuario es de {media}")
