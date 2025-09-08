@@ -17,17 +17,27 @@ print("Usted ingreso una patente válida")
 #Ingresar una patente y sumarle la enesima 
 
 nueva_patente = int(input("Ingrese cuantas patentes mas sumar y buscar en el sistema"))
+patente_2 = ""
 
-for l1 in abc:
-    print (l1)
-    for l2 in abc:
-        print (l2)
-        for l3 in abc:
-            print(l3)
-            for n1 in range(0,10):
-                print (n1)
-                for n2 in range(0,10):
-                    print (n2)
-                    for n3 in range(0,10):
-                        print (n3)
 
+# Generar nueva patente
+# Convert patente ingresada a un número secuencial
+def patente_a_num(patente):
+    letras = patente[:2]
+    numeros = patente[2:]
+    num_letras = (abc.index(letras[0]) * 26) + abc.index(letras[1])
+    num_total = num_letras * 10000 + int(numeros)
+    return num_total
+
+# Convertir número secuencial a patente
+def num_a_patente(num):
+    num_letras = num // 10000
+    numeros = num % 10000
+    l1 = abc[num_letras // 26]
+    l2 = abc[num_letras % 26]
+    return f"{l1}{l2}{numeros:04d}".upper()
+
+patente_num = patente_a_num(patente)
+nueva_patente_num = patente_num + nueva_patente
+patente_2 = num_a_patente(nueva_patente_num)
+print(f"La nueva patente es {patente_2}")
