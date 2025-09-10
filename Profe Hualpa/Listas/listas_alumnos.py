@@ -45,11 +45,11 @@ lista_alumnos = [
 ]
 matriz_grupos = []
 grupos = len(lista_alumnos)//4
-""""
+"""
 for i in range (0,grupos):
     matriz_grupos.append([])
     print(matriz_grupos[i])
-""""
+"""
 import random
 largo_lista = len(lista_alumnos)
 lista_nueva_alumn = [[0 for  _ in range (largo_lista)]]
