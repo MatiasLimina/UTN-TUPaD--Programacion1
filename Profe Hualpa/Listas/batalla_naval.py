@@ -14,3 +14,25 @@ El juego termina cuando todos los barcos son hundidos.
 👉 Similar al Bingo, pero con coordenadas y validaciones.
 
 """
+import random
+lista_datos = [0,1]
+MAX_BARCOS = 5
+barcos_hundidos_usuario = 0
+barcos_hundidos_pc = 0
+
+matriz_usuario = [["-" for  _ in range (MAX_BARCOS)]for _ in range(MAX_BARCOS)]
+matriz_pc = [["-" for  _ in range (MAX_BARCOS)]for _ in range(MAX_BARCOS)]
+
+def imprimir_matriz_u (m_u):
+    for i in range (MAX_BARCOS):
+        for j in range(MAX_BARCOS):
+            print(m_u[i][j],end = " ")
+    print()
+def imprimir_matriz_pc(m_pc):
+    for i in range (MAX_BARCOS):
+        for j in range(MAX_BARCOS):
+            print(m_u[i][j],end = " ")
+    print()
+
+
+
