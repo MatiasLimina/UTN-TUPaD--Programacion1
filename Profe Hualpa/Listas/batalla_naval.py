@@ -35,4 +35,18 @@ def imprimir_matriz_pc(m_pc):
     print()
 
 
+for i in range (MAX_BARCOS):
+    for j in range(MAX_BARCOS):
+        matriz_pc.insert((i,j),random.randrange(0,1))
+        imprimir_matriz_pc(matriz_pc)
+
+
+
+
+
+
+
+#while MAX_BARCOS != barcos_hundidos_pc or MAX_BARCOS != barcos_hundidos_usuario:
+    
+
 
