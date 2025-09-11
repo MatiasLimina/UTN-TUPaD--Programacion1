@@ -13,3 +13,9 @@ lista_vacia.append("barco")
 lista_vacia.append("avion")
 lista_vacia.append("moto")
 print(lista_vacia)
+
+#Ejercicio 4
+animales = ["perro", "gato", "conejo", "pez"]
+animales[1] = "loro"
+animales[-1] = "oso"
+print(animales)
