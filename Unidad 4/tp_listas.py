@@ -25,3 +25,6 @@ print(animales)
 El programa saca del arreglo el número mas alto
 """
 
+#Ejercicio 6
+lista_30 = list(range(10,31,5))
+print("Posicion 1:",lista_30[0],"Posicion 2:",lista_30[1])
