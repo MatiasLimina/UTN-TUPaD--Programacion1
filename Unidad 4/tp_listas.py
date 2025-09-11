@@ -19,3 +19,9 @@ animales = ["perro", "gato", "conejo", "pez"]
 animales[1] = "loro"
 animales[-1] = "oso"
 print(animales)
+
+#Ejercicio 5
+"""
+El programa saca del arreglo el número mas alto
+"""
+
