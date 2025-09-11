@@ -21,13 +21,17 @@ for i in carton_bingo1:
 numeros_sorteo = []
 bingo = False
 while not bingo :
-    numero_sorteado = random.randint(0,50)
+    numero_sorteado = random.randint(1,50)
     if numero_sorteado not in numeros_sorteo:
         numeros_sorteo.append(numero_sorteado)
+        print(f"Se sortea el {numero_sorteado}")
     for i in range(filas):
         for j in range(columnas):
-            if carton_bingo1[i][j] in numeros_sorteo:
+            if carton_bingo1[i][j] == numero_sorteado:
                 carton_bingo1[i][j] = 0
+                print ("Lo tenés")
+                break
+    
     bingo = all(
         carton_bingo1[i][j] == 0
         for i in range(filas)
