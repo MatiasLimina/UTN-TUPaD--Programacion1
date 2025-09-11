@@ -31,7 +31,13 @@ print("Posicion 1:",lista_30[0],"Posicion 2:",lista_30[1])
 
 #Ejercicio 7
 autos = ["sedan", "polo", "suran", "gol"]
-
 autos[1] = "Velero"
 autos[2] = "Yamaha"
 print(autos)
+
+#Ejercicio 8
+dobles = []
+dobles.append(5*2)
+dobles.append(10*2)
+dobles.append(15*2)
+print(dobles)
