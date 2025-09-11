@@ -28,3 +28,10 @@ El programa saca del arreglo el número mas alto
 #Ejercicio 6
 lista_30 = list(range(10,31,5))
 print("Posicion 1:",lista_30[0],"Posicion 2:",lista_30[1])
+
+#Ejercicio 7
+autos = ["sedan", "polo", "suran", "gol"]
+
+autos[1] = "Velero"
+autos[2] = "Yamaha"
+print(autos)
