@@ -48,3 +48,12 @@ compras[2].append("jugo")
 compras[1][1] = "tallarines"
 compras[0].remove("pan")
 print(compras)
+
+#Ejercicio 10
+lista_anidada = []
+lista_anidada.append(15)
+lista_anidada.append(True)
+lista_anidada.append([25.5,57.9,30.6])
+lista_anidada.append(False)
+
+print(lista_anidada)
