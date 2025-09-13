@@ -21,7 +21,7 @@ barcos_hundidos_usuario = 0
 barcos_hundidos_pc = 0
 
 def crear_barcos(barcos_cont):
-    if barcos_cont < 5:
+    if barcos_cont < MAX_BARCOS:
         pos = random.randint(0,1)
         return pos
     else:
