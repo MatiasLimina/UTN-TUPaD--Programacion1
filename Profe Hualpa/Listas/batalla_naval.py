@@ -30,8 +30,8 @@ def crear_barcos(barcos_cont):
 
 
 
-matriz_usuario = [["0" for  _ in range (MAX_BARCOS)]for _ in range(MAX_BARCOS)]
-matriz_pc = [["0" for  _ in range (MAX_BARCOS)]for _ in range(MAX_BARCOS)]
+matriz_usuario = [[0 for  _ in range (MAX_BARCOS)]for _ in range(MAX_BARCOS)]
+matriz_pc = [[0 for  _ in range (MAX_BARCOS)]for _ in range(MAX_BARCOS)]
 
 def imprimir_matriz_u (m_u):
     for i in range (5):
@@ -80,18 +80,42 @@ while barcos_hundidos_pc != MAX_BARCOS  and barcos_hundidos_usuario != MAX_BARCO
     turno_usuario = input("Ingrese una cordenada: [n,n]")
     turnos_jugados_usuario.append(turno_usuario)
     
-    turno_pc = f"{random.randint(0,5)},{random.randint(0,5)}"
-    turnos_jugados_pc.append(turno_pc)
-    
     aux_usuario = turno_usuario.split(",")
     aux_usuario = [int(x) for x in aux_usuario]
+    print(f"Primer coordenada: {aux_usuario[0]}  Segunda coordenada: {aux_usuario[1]}")
+    print(matriz_pc[aux_usuario[0]][aux_usuario[1]])
+    if matriz_pc[aux_usuario[0]][aux_usuario[1]] == 0 :
+        print ("Fallaste")
+    else:
+        print("Le diste! Barco hundido")
+        matriz_pc[aux_usuario[0]][aux_usuario[1]] = 0
+        barcos_hundidos_pc += 1
+    
+    turno_pc = f"{random.randint(0,4)},{random.randint(0,4)}"
+    print(turno_pc,"Turno PC")
+    turnos_jugados_pc.append(turno_pc)
+    
     aux_pc = turno_pc.split(",")
     aux_pc = [int(x) for x in aux_pc]
     
-    
+    if matriz_usuario[aux_pc[0]][aux_pc[1]] == 0 :
+        print ("Fallaste")
+    else:
+        print("Le diste! Barco hundido")
+        matriz_usuario[aux_pc[0]][aux_pc[1]] = 0
+        barcos_hundidos_usuario += 1
+    print("TABLERO DEL USUARIO ACTUALMENTE")
+    for i in range(MAX_BARCOS):
+        print(matriz_usuario[i])
+    print("TABLERO PC ACTUALMENTE")
+    for i in range(MAX_BARCOS):
+        print(matriz_pc[i])
+    #barcos_hundidos_pc = 5
 
-    barcos_hundidos_pc = 5
-
+if barcos_hundidos_pc == 5:
+    print("El ganador es el usuario")
+elif barcos_hundidos_usuario == 5:
+    print("El ganador es la PC")
 
 
 
