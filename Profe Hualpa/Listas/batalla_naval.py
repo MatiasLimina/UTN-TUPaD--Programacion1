@@ -33,7 +33,7 @@ def crear_barcos(barcos_cont):
 
 matriz_usuario = [[0 for  _ in range (TAMANO)]for _ in range(TAMANO)]
 matriz_pc = [[0 for  _ in range (TAMANO)]for _ in range(TAMANO)]
-
+matriz_interfaz = [["-" for  _ in range (TAMANO)]for _ in range(TAMANO)]
 def imprimir_matriz_u (m_u):
     for i in range (5):
         for j in range(5):
@@ -78,7 +78,7 @@ turno_pc = ""
 turnos_jugados_pc = []
 turnos_jugados_usuario = []
 while barcos_hundidos_pc != MAX_BARCOS  and barcos_hundidos_usuario != MAX_BARCOS:
-    turno_usuario = input("Ingrese una cordenada: [n,n]")
+    turno_usuario = input("Ingrese una cordenada: [n,n](Valores entre 0 y 4)")
     turnos_jugados_usuario.append(turno_usuario)
     
     aux_usuario = turno_usuario.split(",")
@@ -87,10 +87,12 @@ while barcos_hundidos_pc != MAX_BARCOS  and barcos_hundidos_usuario != MAX_BARCO
     print(matriz_pc[aux_usuario[0]][aux_usuario[1]])
     if matriz_pc[aux_usuario[0]][aux_usuario[1]] == 0 :
         print ("Fallaste")
+        matriz_interfaz[aux_usuario[0]][aux_usuario[1]] = "O"
     else:
         print("Le diste! Barco hundido")
         matriz_pc[aux_usuario[0]][aux_usuario[1]] = 0
         barcos_hundidos_pc += 1
+        matriz_interfaz[aux_usuario[0]][aux_usuario[1]] = "X"
     
     turno_pc = f"{random.randint(0,4)},{random.randint(0,4)}"
     print(turno_pc,"Turno PC")
@@ -105,13 +107,18 @@ while barcos_hundidos_pc != MAX_BARCOS  and barcos_hundidos_usuario != MAX_BARCO
         print("Le diste! Barco hundido")
         matriz_usuario[aux_pc[0]][aux_pc[1]] = 0
         barcos_hundidos_usuario += 1
+    #Trackear los tableros, comentar para no mostrarlos
     print("TABLERO DEL USUARIO ACTUALMENTE")
     for i in range(TAMANO):
         print(matriz_usuario[i])
     print("TABLERO PC ACTUALMENTE")
     for i in range(TAMANO):
         print(matriz_pc[i])
-    #barcos_hundidos_pc = 5
+    
+    #Tablero que si ve el usuario al jugar
+    for i in range(TAMANO):
+        print(matriz_interfaz[i])
+    
 
 if barcos_hundidos_pc == 5:
     print("El ganador es el usuario")
