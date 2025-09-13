@@ -72,11 +72,27 @@ print("---------------")
 for i in range(MAX_BARCOS):
     print(matriz_usuario[i])
 
-
-
-
-
-#while MAX_BARCOS != barcos_hundidos_pc or MAX_BARCOS != barcos_hundidos_usuario:
+turno_usuario = ""
+turno_pc = ""
+turnos_jugados_pc = []
+turnos_jugados_usuario = []
+while barcos_hundidos_pc != MAX_BARCOS  and barcos_hundidos_usuario != MAX_BARCOS:
+    turno_usuario = input("Ingrese una cordenada: [n,n]")
+    turnos_jugados_usuario.append(turno_usuario)
     
+    turno_pc = f"{random.randint(0,5)},{random.randint(0,5)}"
+    turnos_jugados_pc.append(turno_pc)
+    
+    aux_usuario = turno_usuario.split(",")
+    aux_usuario = [int(x) for x in aux_usuario]
+    aux_pc = turno_pc.split(",")
+    aux_pc = [int(x) for x in aux_pc]
+    
+    
+
+    barcos_hundidos_pc = 5
+
+
+
 
 
