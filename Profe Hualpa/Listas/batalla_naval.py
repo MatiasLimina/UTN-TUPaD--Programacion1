@@ -17,6 +17,7 @@ El juego termina cuando todos los barcos son hundidos.
 import random
 lista_datos = [0,1]
 MAX_BARCOS = 5
+TAMANO = 5
 barcos_hundidos_usuario = 0
 barcos_hundidos_pc = 0
 
@@ -30,8 +31,8 @@ def crear_barcos(barcos_cont):
 
 
 
-matriz_usuario = [[0 for  _ in range (MAX_BARCOS)]for _ in range(MAX_BARCOS)]
-matriz_pc = [[0 for  _ in range (MAX_BARCOS)]for _ in range(MAX_BARCOS)]
+matriz_usuario = [[0 for  _ in range (TAMANO)]for _ in range(TAMANO)]
+matriz_pc = [[0 for  _ in range (TAMANO)]for _ in range(TAMANO)]
 
 def imprimir_matriz_u (m_u):
     for i in range (5):
@@ -44,10 +45,10 @@ def imprimir_matriz_pc(m_pc):
             print(m_pc[i][j],end = " ")
         print()
 
-for i in range(MAX_BARCOS):
+for i in range(TAMANO):
     print(matriz_pc[i])
 print("---------------")
-for i in range(MAX_BARCOS):
+for i in range(TAMANO):
     print(matriz_usuario[i])
 
 imprimir_matriz_pc(matriz_pc)
@@ -66,10 +67,10 @@ for i in range (5):
                 contador+=1
 
 
-for i in range(MAX_BARCOS):
+for i in range(TAMANO):
     print(matriz_pc[i])
 print("---------------")
-for i in range(MAX_BARCOS):
+for i in range(TAMANO):
     print(matriz_usuario[i])
 
 turno_usuario = ""
@@ -105,10 +106,10 @@ while barcos_hundidos_pc != MAX_BARCOS  and barcos_hundidos_usuario != MAX_BARCO
         matriz_usuario[aux_pc[0]][aux_pc[1]] = 0
         barcos_hundidos_usuario += 1
     print("TABLERO DEL USUARIO ACTUALMENTE")
-    for i in range(MAX_BARCOS):
+    for i in range(TAMANO):
         print(matriz_usuario[i])
     print("TABLERO PC ACTUALMENTE")
-    for i in range(MAX_BARCOS):
+    for i in range(TAMANO):
         print(matriz_pc[i])
     #barcos_hundidos_pc = 5
 
