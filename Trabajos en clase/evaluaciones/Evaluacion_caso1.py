@@ -9,10 +9,14 @@ while not salir:
     #Ingreso de nuevos titulos al catalogo general
     if opcion == "1":
         nuevo_titulo = input("Ingrese un nuevo titulo para agregar a la biblioteca ").lower().capitalize()
-        titulos.append(nuevo_titulo.title())
-        ejemplares.append(0)
-        for i in range(len(titulos)):
-            print(titulos[i],":",ejemplares[i])
+        if nuevo_titulo in titulos:
+            print("Ese titulo ya se encuentra en nuestro catálogo")
+        else:
+            titulos.append(nuevo_titulo.title())
+            ejemplares.append(0)
+            for i in range(len(titulos)):
+                print(titulos[i],":",ejemplares[i])
+
     #Ingrese de numero de copias discponibles a un titulo en especifico
     elif opcion == "2":
         buscar_titulo = input("Ingrese el nombre del titulo al cual quiere actualizar su numero de copias ").capitalize()
@@ -55,12 +59,15 @@ while not salir:
     elif opcion == "6":
         nuevo_tit = input("Ingrese un nuevo titulo: ").lower().capitalize()
         copias_nuevo_tit = int(input("Ingrese la cantidad de copias del titulo nuevo "))
-        titulos.append(nuevo_tit)
-        ejemplares.append(copias_nuevo_tit)
-        print(f"El nuevo titulo agregado es {nuevo_tit}, con una cantidad de {copias_nuevo_tit} copias")
+        if nuevo_tit in titulos:
+            print("Ese titulo ya se encuentra en nuestro catálogo")
+        else:
+            titulos.append(nuevo_tit)
+            ejemplares.append(copias_nuevo_tit)
+            print(f"El nuevo titulo agregado es {nuevo_tit}, con una cantidad de {copias_nuevo_tit} copias")
     #Actualizar prestamos y devoluciones
     elif opcion == "7":
-        actu = input("Desea devolver un libro o pedir prestado un libro? \n 1) Pedir prestado 2) Devolver un ejemplar")
+        actu = input("Desea devolver un libro o pedir prestado un libro? \n 1) Pedir prestado 2) Devolver un ejemplar ")
         if actu == "1":
             prestado = input("Que libro desea pedir prestado? ").lower().capitalize()
             while prestado not in titulos:
@@ -74,11 +81,27 @@ while not salir:
                 else:
                     print(f"El libro {titulos[indice_prestado]} posee {ejemplares[indice_prestado]} copias")
                     ejemplares[indice_prestado] -= 1
-                    print (f"Quedan {ejemplares[indice_prestado]} del libro que usted pidio prestado")
+                    print (f"Quedan {ejemplares[indice_prestado]} ejemplares del libro que usted pidio prestado")
+        elif actu == "2":
+            devolver = input("Que libro desea devolver? ").lower().capitalize()
+            if devolver not in titulos:
+                print("Ese no es un titulo que pertenezca a nuestro catálogo")
+                break
+            elif devolver in titulos:
+                indice_devolver = titulos.index(devolver)
+                ejemplares[indice_devolver] += 1
+                print(f"Usted devolvio el libro {titulos[indice_devolver]} con exito")
+    elif opcion == "8": #Ver catálogo
+        print("Nuestro catálogo de libros es el siguiente")
+        for i in range(len(titulos)):
+            print(f"{titulos[i]}:{ejemplares[i]}")
 
-    
-    
-    break
-print("Fuera del ciclo")
+    salir_aux = input("Desea continuar utilizando nuestros servicios? \n 1) Si 2) No ")
+    while not salir_aux.isnumeric():
+        salir_aux = input("ingrese una opción válida \n 1) Continuar 2) Salir ")
+    if salir_aux == "2":
+        salir = True
+
+print("Gracias por confiar en nosotros! \n Vuelva pronto!")
 
 
