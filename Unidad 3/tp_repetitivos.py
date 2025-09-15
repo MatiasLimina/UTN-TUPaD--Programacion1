@@ -48,9 +48,9 @@ print (f"Usted requirio {intentos} intentos para acertar el número que era {num
 
 #Ejercicio 6
 
-for i in range(100,-1,-1):
+for i in range(100,-1,-2):
     print (i)
-    break
+
 
 #Ejercicio 7
 rango_max = int(input("Hasta que entero positivo desea sumar "))
