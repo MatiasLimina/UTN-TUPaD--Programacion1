@@ -25,9 +25,13 @@ while not salir:
                 print("Esta especialidad ya cuenta con una cantidad de cupos especificada")
             elif cupos[i] == 0:
                 cupos[i] = int(input(f"Ingrese la cantidad de cupos disponibles para la especialidad {especialidades[i]}: "))    
+    #Mostrar agenda
+    if opcion == "3":
+        print("Le mostraremos nuestra agenda")
+        for i in range(len(especialidades)):
+            print(f"Especialidad: {especialidades[i]} Cupos: {cupos[i]}")
     
-    
-    
+    #Salir del menu
     if opcion == "10":
         salir_aux = input("Desea salir? \n SI / NO ").upper()
         if salir_aux == "SI":
