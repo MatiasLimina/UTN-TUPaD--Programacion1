@@ -11,10 +11,24 @@ while not salir:
         nueva_espe = input("Ingrese una nueva especialidad ").lower().capitalize()
         while nueva_espe in especialidades:
             print("La especialidad ingreada ya esta dentro del sistema")
-            nueva_espe = input("Ingrese una nueva especialidad").lower().capitalize()
+            nueva_espe = input("Ingrese una nueva especialidad ").lower().capitalize()
         if nueva_espe not in especialidades:
             especialidades.append(nueva_espe)
             cupos.append(0)
         for i in range(len(cupos)):
             print (f"Especialidad: {especialidades[i]} Cupos: {cupos[i]} ")
-    break
+    #Ingresar cupos disponibles por especialidad
+    if opcion == "2":
+        for i in range(len(especialidades)):
+            print(f"Especialidad: {especialidades[i]} Cupos: {cupos[i]}")
+            if cupos[i] != 0:
+                print("Esta especialidad ya cuenta con una cantidad de cupos especificada")
+            elif cupos[i] == 0:
+                cupos[i] = int(input(f"Ingrese la cantidad de cupos disponibles para la especialidad {especialidades[i]}: "))    
+    
+    
+    
+    if opcion == "10":
+        salir_aux = input("Desea salir? \n SI / NO ").upper()
+        if salir_aux == "SI":
+            salir = True
