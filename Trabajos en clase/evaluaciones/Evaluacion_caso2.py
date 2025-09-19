@@ -65,9 +65,35 @@ while not salir:
             cupos.append(nueva_cupos)
             for i in range(len(especialidades)):
                 print (f"{especialidades[i]} Cupos: {cupos[i]}")
-    #
+    #Actualizar cupos, Reserva o cancelacion de turno
+    if opcion == "7":
+        aux = input("Desea cancelar o reservar un turno? \n 1) Cancelar 2)Reservar ")
+        if aux == "1":
+            turno = input("De que especialidad es el turno que desea cancelar? ").lower().capitalize()
+            while turno not in especialidades:
+                print("Ingrese una especialidad que este dentro del sistema")
+                turno = input("De que especialidad es el turno que desea cancelar? ").lower().capitalize()
+            if turno in especialidades:
+                index = especialidades.index(turno)
+                cupos[index] += 1
+                print("Su turno a sido cancelado con exito!")
+        elif aux == "2":
+            turno = input("De que especialidad es el turno que desea cancelar? ").lower().capitalize()
+            while turno not in especialidades:
+                print("Ingrese una especialidad que este dentro del sistema")
+                turno = input("De que especialidad es el turno que desea cancelar? ").lower().capitalize()
+            if turno in especialidades:
+                index = especialidades.index(turno)
+                cupos[index] -= 1
+                print("Su turno a sido reservado con exito!")
+    #Mostrar agenda completa
+    if opcion == "8":
+        print("Le mostraremos nuestra agenda completa")
+        for i in range(len(especialidades)):
+            print(f"Especialidad: {especialidades[i]} Cupos: {cupos[i]}")
+        print ("Nuestro horario de atencion es de 7:00 a 14:00 hs")
     #Salir del menu
-    if opcion == "10":
+    if opcion == "9":
         salir_aux = input("Desea salir? \n SI / NO ").upper()
         if salir_aux == "SI":
             salir = True
