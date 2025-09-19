@@ -3,9 +3,9 @@ cupos = [5, 3, 10,0]
 
 salir = False
 while not salir:
-    opcion = input("Ingrese que desea hacer:\n 1)Ingresar especialidad \n 2)Ingresar cupos disponibles para una especialidad específica \n 3)Mostrar agenda \n 4)Consultar los cupos disponibles en una especialidad específica \n 5)Mostrar especialidades sin cupos disponibles \n 6) Agregar nueva especialidad y el numero de cupos disponibles para la misma \n 7)Ver las especialidades sin cupos disponibles \n 8)Actualizar cupos (Reservar/Cancelar) \n 9)Ver agenda completa \n 10)Salir \n ")
+    opcion = input("Ingrese que desea hacer:\n 1)Ingresar especialidad \n 2)Ingresar cupos disponibles para una especialidad específica \n 3)Mostrar agenda \n 4)Consultar los cupos disponibles en una especialidad específica \n 5)Mostrar especialidades sin cupos disponibles \n 6) Agregar nueva especialidad y el numero de cupos disponibles para la misma  \n 7)Actualizar cupos (Reservar/Cancelar) \n 8)Ver agenda completa \n 9)Salir \n ")
     while not opcion.isnumeric():
-        opcion = input("Ingrese que desea hacer:\n 1)Ingresar especialidad \n 2)Ingresar cupos disponibles para una especialidad específica \n 3)Mostrar agenda \n 4)Consultar los cupos disponibles en una especialidad específica \n 5)Mostrar especialidades sin cupos disponibles \n 6) Agregar nueva especialidad y el numero de cupos disponibles para la misma \n 7)Ver las especialidades sin cupos disponibles \n 8)Actualizar cupos (Reservar/Cancelar) \n 9)Ver agenda completa \n 10)Salir \n ")
+        opcion = input("Ingrese que desea hacer:\n 1)Ingresar especialidad \n 2)Ingresar cupos disponibles para una especialidad específica \n 3)Mostrar agenda \n 4)Consultar los cupos disponibles en una especialidad específica \n 5)Mostrar especialidades sin cupos disponibles \n 6) Agregar nueva especialidad y el numero de cupos disponibles para la misma  \n 7)Actualizar cupos (Reservar/Cancelar) \n 8)Ver agenda completa \n 9)Salir \n ")
     #Ingreso de nueva especialidad
     if opcion == "1":
         cant_nuevas_espe = int(input("Cuantas especialidades desea agregar? "))
@@ -53,8 +53,19 @@ while not salir:
         print("Las especialidades sin cupo disponibles son: ")
         for i in espe_sin_cupos:
             print(i)
-    
-    
+    #Agregar nueva especialidad y sus cupos
+    if opcion == "6":
+        nueva_espe = input("Ingrese una nueva especialidad ").lower().capitalize()
+        while nueva_espe in especialidades:
+                print("La especialidad ingreada ya esta dentro del sistema")
+                nueva_espe = input("Ingrese una nueva especialidad ").lower().capitalize()
+        if nueva_espe not in especialidades:
+            especialidades.append(nueva_espe)
+            nueva_cupos = int(input("Cuantos cupos tiene esta especialdad? "))
+            cupos.append(nueva_cupos)
+            for i in range(len(especialidades)):
+                print (f"{especialidades[i]} Cupos: {cupos[i]}")
+    #
     #Salir del menu
     if opcion == "10":
         salir_aux = input("Desea salir? \n SI / NO ").upper()
