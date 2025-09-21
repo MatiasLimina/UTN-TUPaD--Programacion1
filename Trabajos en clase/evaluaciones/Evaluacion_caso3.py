@@ -78,17 +78,22 @@ while not salir:
         if consulta_tarjeta in tarjetas:
             idx = tarjetas.index(consulta_tarjeta)
             #Le preguntamos al usuario que operacion desea realizar
-            cargar_debitar = input("Que desea hacer? 1) Cargar saldo 2) Debitar saldo ")
+            cargar_debitar = input("Que desea hacer? 1) Debitar saldo 2) Cargar saldo  ")
             while not cargar_debitar.isnumeric():
                 cargar_debitar = input("Eliga una opción válida: ")
             if cargar_debitar == "1":#Debitar
-                debito = float(input("Ingrese cuanto desea debitar de su carga: (Su tarjeta puede quedar con un saldo minimo de $ -500.00)"))
+                debito = float(input("Ingrese cuanto desea debitar de su saldo: (Su tarjeta puede quedar con un saldo minimo de $ -500.00)"))
                 aux_debito = saldos[idx] - debito
                 if aux_debito < -500.00:
                     print("El saldo final seria menor que el minimo establecido, la operacion queda cancelada")
                 elif aux_debito >= -500.00:
                     saldos[idx] = aux_debito
                     print("El nuevo saldo es de $",saldos[idx])
+            elif cargar_debitar == "2":
+                carga = float(input("Ingrese cuanto desea cargar a su saldo: "))
+                saldos[idx] += carga
+                print("Su nuevo saldo es de $",saldos[idx])
+
                 
             
 
