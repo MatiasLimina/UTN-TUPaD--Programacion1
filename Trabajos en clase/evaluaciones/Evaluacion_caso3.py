@@ -37,6 +37,10 @@ while not salir:
             for i in range(num_nuevas_tarj): #Permite al usuario igresar los saldos en orden
                 nuevo_sueldo = float(input("Ingrese el sueldo de las nuevas tarjetas en orden"))
                 saldos.append(nuevo_sueldo)
+    elif opc =="3": # Ver tarjetas registradas y sus saldos
+        for i in range(len(tarjetas)):
+            print(f"Tarjetas: {tarjetas[i]} -Saldo: {saldos[i]}")
+
     elif opc == "8":
         print("Desea salir?")
         aux_salir = input("Si / No ").upper()
