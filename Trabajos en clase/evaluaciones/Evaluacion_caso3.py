@@ -89,18 +89,14 @@ while not salir:
                 elif aux_debito >= -500.00:
                     saldos[idx] = aux_debito
                     print("El nuevo saldo es de $",saldos[idx])
-            elif cargar_debitar == "2":
+            elif cargar_debitar == "2": #Cargar
                 carga = float(input("Ingrese cuanto desea cargar a su saldo: "))
                 saldos[idx] += carga
                 print("Su nuevo saldo es de $",saldos[idx])
-
-                
-            
-
+    
     elif opc == "8":
         print("Desea salir?")
         aux_salir = input("Si / No ").upper()
         if aux_salir == "SI":
             salir = True
-
-        
+print("Gracias por elegirnos!")
