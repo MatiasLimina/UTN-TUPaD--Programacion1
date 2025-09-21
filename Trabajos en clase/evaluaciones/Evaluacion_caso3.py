@@ -10,7 +10,7 @@ while not salir:
     print("4) Ver saldo de una tarjeta específica")
     print("5) Ver listado de tarjetas con saldo negativo o cero")
     print("6) Registrar una nueva tarjeta y su saldo actual")
-    print("7) Aumentar o discminuir el saldo de una tarjeta")
+    print("7) Aumentar o disminuir el saldo de una tarjeta")
     print("8) Salir")
     opc = input("Eliga una opción: ")
     while not opc.isnumeric():
@@ -82,7 +82,7 @@ while not salir:
             while not cargar_debitar.isnumeric():
                 cargar_debitar = input("Eliga una opción válida: ")
             if cargar_debitar == "1":#Debitar
-                debito = float(input("Ingrese cuanto desea debitar de su saldo: (Su tarjeta puede quedar con un saldo minimo de $ -500.00)"))
+                debito = float(input("Ingrese cuanto desea debitar de su saldo: (Su tarjeta puede quedar con un saldo minimo de $ -500.00) "))
                 aux_debito = saldos[idx] - debito
                 if aux_debito < -500.00:
                     print("El saldo final seria menor que el minimo establecido, la operacion queda cancelada")
