@@ -1,6 +1,6 @@
 tarjetas = ["1234567890123456", "9876543210987654", "5555666677778888"]
 saldos = [150.50, 25.00, -10.00]
-
+num_nuevas_tarj = 0
 salir = False
 while not salir:
     print ("MENU")
