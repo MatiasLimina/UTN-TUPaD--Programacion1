@@ -7,7 +7,7 @@ while not salir:
     print("1) Ingresar nuevas tarjetas al sistema")
     print("2) Asignar saldo para tarjetas recientemente agregadas")
     print("3) Ver tarjetas registradas y sus saldos")
-    print("4) Ver salfo de una tarjeta específica")
+    print("4) Ver saldo de una tarjeta específica")
     print("5) Ver listado de tarjetas con saldo negativo o cero")
     print("6) Registrar una nueva tarjeta y su saldo actual")
     print("7) Aumentar o discminuir el saldo de una tarjeta")
@@ -15,7 +15,6 @@ while not salir:
     opc = input("Eliga una opción: ")
     while not opc.isnumeric():
         opc = input("Eliga una opción válida: ")
-    
     if opc == "1": #Ingreso de nuevas tarjetas al sistema
         num_nuevas_tarj = int(input("Cuántas tarjetas desea registrar? Máximo de 5 tarjetas a la vez "))
         if num_nuevas_tarj >5: #Comprueba que el valor ingresado no exceda el limite
@@ -27,9 +26,10 @@ while not salir:
                 while not nueva_tarjeta.isnumeric() or len(nueva_tarjeta)>16 or len(nueva_tarjeta)<16 or nueva_tarjeta in tarjetas:
                     print ("Ingreso mal los datos de la nueva tarjeta o ya se encuentra en el sistema")
                     nueva_tarjeta = input("Ingrese los datos de la nueva tarjeta: (Debe ser un numero de 16 dígitos)")
-                if len(nueva_tarjeta) == 16: #Si no hay porblemas la tarjeta se agrega al sist
+                if len(nueva_tarjeta) == 16 and nueva_tarjeta not in tarjetas: #Si no hay porblemas la tarjeta se agrega al sist
                     tarjetas.append(nueva_tarjeta)
                     saldos.append(0)
+    
     elif opc == "2":#Asignar saldo para tarjetas recientemente agregadas
         if nueva_tarjeta == 0: #Si no se agregaron tarjetas nuevas no permite colocar saldos nuevos
             print("No hay nuevas tarjetas registradas")
@@ -37,9 +37,22 @@ while not salir:
             for i in range(num_nuevas_tarj): #Permite al usuario igresar los saldos en orden
                 nuevo_sueldo = float(input("Ingrese el sueldo de las nuevas tarjetas en orden"))
                 saldos.append(nuevo_sueldo)
-    elif opc =="3": # Ver tarjetas registradas y sus saldos
+    
+    elif opc == "3": # Ver tarjetas registradas y sus saldos
         for i in range(len(tarjetas)):
             print(f"Tarjetas: {tarjetas[i]} -Saldo: {saldos[i]}")
+    
+    elif opc == "4":#Consultar el saldo de una tarjeta en especifico
+        consulta_tarjeta = input("Ingrese el numero de la tarjeta de la cual desea consultar el saldo ")
+        #El bucle se ejecuta cuando el formato de la tarjeta a registrar no es el correcto o cuando la tarjeta en cuestion ya esta en el sistema
+        while not consulta_tarjeta.isnumeric() or len(consulta_tarjeta)>16 or len(consulta_tarjeta)<16 or consulta_tarjeta not in tarjetas:
+            print ("Ingreso mal los datos de la tarjeta")
+            nueva_consulta = input("IIngrese el numero de la tarjeta de la cual desea consultar el saldo ")
+        if consulta_tarjeta in tarjetas:
+            idx = tarjetas.index(consulta_tarjeta)
+            print(f"Tarjeta: {tarjetas[idx]}")
+            print(f"El saldo es de ${saldos[idx]}")
+
 
     elif opc == "8":
         print("Desea salir?")
