@@ -13,4 +13,27 @@ while not salir:
     print("7) Aumentar o discminuir el saldo de una tarjeta")
     print("8) Salir")
     opc = input("Eliga una opción: ")
+    while not opc.isnumeric():
+        opc = input("Eliga una opción válida: ")
     
+    if opc == "1":
+        num_nuevas_tarj = int(input("Cuántas tarjetas desea registrar? Máximo de 5 tarjetas a la vez "))
+        if num_nuevas_tarj >5:
+            print("El número ingresado excede el limite del sistema")
+        else:
+            for i in range(num_nuevas_tarj):
+                nueva_tarjeta = input("Ingrese los datos de la nueva tarjeta: (Debe ser un numero de 16 dígitos)")
+                while not nueva_tarjeta.isnumeric() or len(nueva_tarjeta)>16 or len(nueva_tarjeta)<16:
+                    print ("Ingreso mal los datos de la nueva tarjeta")
+                    nueva_tarjeta = input("Ingrese los datos de la nueva tarjeta: (Debe ser un numero de 16 dígitos)")
+                if len(nueva_tarjeta) == 16:
+                    tarjetas.append(nueva_tarjeta)
+                    saldos.append(0)
+        print(tarjetas,saldos)
+    elif opc == "8":
+        print("Desea salir?")
+        aux_salir = input("Si / No ").upper()
+        if aux_salir == "SI":
+            salir = True
+
+        
