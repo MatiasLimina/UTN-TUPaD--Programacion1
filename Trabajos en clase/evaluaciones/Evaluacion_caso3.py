@@ -1,5 +1,5 @@
 tarjetas = ["1234567890123456", "9876543210987654", "5555666677778888", "2222444422224444", "1234123412341234"]
-saldos = [150.50, 25.00, -10.00,0,0]
+saldos = [150.50, 25.00, -10.00,0.00,0.00]
 num_nuevas_tarj = 0
 salir = False
 while not salir:
@@ -28,10 +28,10 @@ while not salir:
                     nueva_tarjeta = input("Ingrese los datos de la nueva tarjeta: (Debe ser un numero de 16 dígitos)")
                 if len(nueva_tarjeta) == 16 and nueva_tarjeta not in tarjetas: #Si no hay porblemas la tarjeta se agrega al sist
                     tarjetas.append(nueva_tarjeta)
-                    saldos.append(0)
+                    saldos.append(0.00)
     
     elif opc == "2":#Asignar saldo para tarjetas recientemente agregadas
-        if nueva_tarjeta == 0: #Si no se agregaron tarjetas nuevas no permite colocar saldos nuevos
+        if nueva_tarjeta == 0.00: #Si no se agregaron tarjetas nuevas no permite colocar saldos nuevos
             print("No hay nuevas tarjetas registradas")
         else:
             for i in range(num_nuevas_tarj): #Permite al usuario igresar los saldos en orden
@@ -55,12 +55,21 @@ while not salir:
     elif opc == "5": #Mostrar saldos negativos
         saldo_negativos = []
         for i in range(len(tarjetas)):
-            if saldos[i] <= 0:
+            if saldos[i] <= 0.00:
                 saldo_negativos.append(tarjetas[i])
         print("A continuacion, las tarjetas con saldo cero o negativo")
         print(saldo_negativos)
-
-
+    elif opc =="6":
+        nueva_tarjeta = input("Ingrese los datos de la nueva tarjeta: (Debe ser un numero de 16 dígitos)")
+        #El bucle se ejecuta cuando el formato de la tarjeta a registrar no es el correcto o cuando la tarjeta en cuestion ya esta en el sistema
+        while not nueva_tarjeta.isnumeric() or len(nueva_tarjeta)>16 or len(nueva_tarjeta)<16 or nueva_tarjeta in tarjetas:
+            print ("Ingreso mal los datos de la nueva tarjeta o ya se encuentra en el sistema")
+            nueva_tarjeta = input("Ingrese los datos de la nueva tarjeta: (Debe ser un numero de 16 dígitos)")
+        if len(nueva_tarjeta) == 16 and nueva_tarjeta not in tarjetas: #Si no hay porblemas la tarjeta se agrega al sist
+            tarjetas.append(nueva_tarjeta)
+            saldos.append(float(input("Cuál es el saldo de la tarjeta ingresada?")))
+    elif opc == "7":
+        
 
 
     elif opc == "8":
