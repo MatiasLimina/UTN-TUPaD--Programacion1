@@ -1,5 +1,5 @@
-tarjetas = ["1234567890123456", "9876543210987654", "5555666677778888"]
-saldos = [150.50, 25.00, -10.00]
+tarjetas = ["1234567890123456", "9876543210987654", "5555666677778888", "2222444422224444", "1234123412341234"]
+saldos = [150.50, 25.00, -10.00,0,0]
 num_nuevas_tarj = 0
 salir = False
 while not salir:
@@ -52,6 +52,15 @@ while not salir:
             idx = tarjetas.index(consulta_tarjeta)
             print(f"Tarjeta: {tarjetas[idx]}")
             print(f"El saldo es de ${saldos[idx]}")
+    elif opc == "5": #Mostrar saldos negativos
+        saldo_negativos = []
+        for i in range(len(tarjetas)):
+            if saldos[i] <= 0:
+                saldo_negativos.append(tarjetas[i])
+        print("A continuacion, las tarjetas con saldo cero o negativo")
+        print(saldo_negativos)
+
+
 
 
     elif opc == "8":
