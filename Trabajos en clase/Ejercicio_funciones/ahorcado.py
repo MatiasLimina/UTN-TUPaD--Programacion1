@@ -13,11 +13,24 @@ def ocultar_palabra(palabra_ocul):
 
 def array_palabra(palabra:str,palabra_oculta):
     aux_palabra = []
-    aux_oculta= []
     for i in range(len(palabra)):
         aux_palabra.append[palabra[i]]
+
+def array_oculta(palabra_oculta):
+    aux_oculta = []
+    for i in range(len(palabra_oculta)):
         aux_oculta.append[palabra_oculta[i]]
 
+
+
+def jugar_turno(array_palabra,array_oculta):
+    letra = input("Ingrese una letra ").lower()
+    if letra in array_palabra:
+        idx = array_palabra.index(letra)
+        array_oculta[idx]=letra
+        return array_oculta
+    else:
+        return False
 
 def mostrar_ahorcado(oculta):
     print(f"{oculta} / Quedan x intentos")
@@ -29,10 +42,12 @@ oculta = ocultar_palabra(palabra_ahorcado)
 intentos = 0
 print (palabra_ahorcado)
 print(oculta)
+array_palabras = array_palabra(palabra_ahorcado)
+array_ocultas = array_oculta(oculta)
 
 salir = False
 while not salir:
-    turno = intento_letra(palabra_ahorcado,oculta)
+    turno = jugar_turno(array_palabras,array_ocultas)
     if turno == False:
         intentos += 1
     else:
