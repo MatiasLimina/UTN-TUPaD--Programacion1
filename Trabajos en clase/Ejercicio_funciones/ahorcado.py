@@ -36,7 +36,11 @@ def jugar_turno(array_palabra,array_oculta):
         return array_oculta
     else:
         return False
-
+def armar_oculta(array_ocu):
+    oculta =""
+    for i in range(len(array_ocu)):
+        oculta = oculta + array_ocu[i]
+    return oculta
 
 def mostrar_ahorcado(oculta):
     print(f"{oculta} / Quedan x intentos")
@@ -54,10 +58,11 @@ aux_ocultas = array_oculta(oculta)
 salir = False
 while not salir:
     turno = jugar_turno(aux_palabras,aux_ocultas)
+    
     if turno == False:
         intentos += 1
     else:
-        oculta=turno
+        oculta = armar_oculta(aux_ocultas)
         mostrar_ahorcado(oculta)
     if intentos == 6:
         print("Intentos maximos alcanzados \n Perdiste!")
