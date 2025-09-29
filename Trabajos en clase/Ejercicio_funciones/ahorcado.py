@@ -4,7 +4,7 @@ def elegir_palabra (palabras): #Selecciona una palabra random para jugar
     num_random = random.randrange(0,len(palabras))
     return palabras[num_random]
 
-def palabra_oculta(palabra_ocul):
+def ocultar_palabra(palabra_ocul):
     len_oculta = len(palabra_ocul)
     oculta = ""
     for i in range(len_oculta):
@@ -15,6 +15,6 @@ def palabra_oculta(palabra_ocul):
 
 palabras = ["pera", "manzana","banana","naranja"]
 palabra_ahorcado = elegir_palabra(palabras)
-oculta = palabra_oculta(palabra_ahorcado)
+oculta = ocultar_palabra(palabra_ahorcado)
 print (palabra_ahorcado)
 print(oculta)
