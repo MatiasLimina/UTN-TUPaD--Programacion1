@@ -23,10 +23,19 @@ def array_oculta(palabra_oculta):
         aux_oculta.append(palabra_oculta[i])
     return aux_oculta
 
-
+def una_letra():
+    check = False
+    while not check:
+        letra = input("Ingrese una letra ").lower()
+        if len(letra) != 1:
+            print ("Debe ingresar una unica letra")
+            check = False
+        elif len(letra) == 1:
+            check = True
+    return letra
 
 def jugar_turno(array_palabra,array_oculta):
-    letra = input("Ingrese una letra ").lower()
+    letra = una_letra()
     acierto = False
     for i in range(len(array_palabra)):
         if array_palabra[i] == letra:
