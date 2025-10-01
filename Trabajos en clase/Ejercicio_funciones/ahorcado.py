@@ -53,32 +53,40 @@ def armar_oculta(array_ocu):
 
 def mostrar_ahorcado(oculta,intentos):
     print(f"{oculta} / Quedan {intentos} intentos")
+def jugar_ahorcado(aux_palabras,aux_ocultas,oculta,palabra_ahorcado):
+    salir = False
+    intentos = 6
+    while not salir:
+        turno = jugar_turno(aux_palabras,aux_ocultas)
+        if turno == False:
+            intentos -= 1
+            mostrar_ahorcado(oculta,intentos)
+        else:
+            oculta = armar_oculta(aux_ocultas)
+            mostrar_ahorcado(oculta,intentos)
+        if intentos == 0:
+            print("Intentos maximos alcanzados \n Perdiste!")
+            salir = True
+        elif oculta == palabra_ahorcado:
+            mostrar_ahorcado(oculta,intentos)
+            print("Felicitaciones!")
+            salir = True
 
 #main
 palabras = ["pera", "manzana","banana","naranja"]
-palabra_ahorcado = elegir_palabra(palabras)
-oculta = ocultar_palabra(palabra_ahorcado)
-intentos = 6
-print (palabra_ahorcado)
-print(oculta)
-aux_palabras = array_palabra(palabra_ahorcado)
-aux_ocultas = array_oculta(oculta)
 
-salir = False
-while not salir:
-    turno = jugar_turno(aux_palabras,aux_ocultas)
-    
-    if turno == False:
-        intentos -= 1
-        mostrar_ahorcado(oculta,intentos)
-    else:
-        oculta = armar_oculta(aux_ocultas)
-        mostrar_ahorcado(oculta,intentos)
-    if intentos == 0:
-        print("Intentos maximos alcanzados \n Perdiste!")
-        salir = True
-    elif oculta == palabra_ahorcado:
-        mostrar_ahorcado(oculta,intentos)
-        print("Felicitaciones!")
-        salir = True
 
+
+
+juego = False
+while not juego:
+    palabra_ahorcado = elegir_palabra(palabras)
+    oculta = ocultar_palabra(palabra_ahorcado)
+    print (palabra_ahorcado)
+    print(oculta)
+    aux_palabras = array_palabra(palabra_ahorcado)
+    aux_ocultas = array_oculta(oculta)
+    jugar_ahorcado(aux_palabras,aux_ocultas,oculta,palabra_ahorcado)
+    aux_juego = input("Desea jugar otra ronda? S/N ").upper()
+    if aux_juego == "N":
+        juego = True
