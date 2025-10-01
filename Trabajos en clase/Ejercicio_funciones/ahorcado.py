@@ -51,14 +51,14 @@ def armar_oculta(array_ocu):
         oculta = oculta + array_ocu[i]
     return oculta
 
-def mostrar_ahorcado(oculta):
-    print(f"{oculta} / Quedan x intentos")
+def mostrar_ahorcado(oculta,intentos):
+    print(f"{oculta} / Quedan {intentos} intentos")
 
 #main
 palabras = ["pera", "manzana","banana","naranja"]
 palabra_ahorcado = elegir_palabra(palabras)
 oculta = ocultar_palabra(palabra_ahorcado)
-intentos = 0
+intentos = 6
 print (palabra_ahorcado)
 print(oculta)
 aux_palabras = array_palabra(palabra_ahorcado)
@@ -69,15 +69,16 @@ while not salir:
     turno = jugar_turno(aux_palabras,aux_ocultas)
     
     if turno == False:
-        intentos += 1
+        intentos -= 1
+        mostrar_ahorcado(oculta,intentos)
     else:
         oculta = armar_oculta(aux_ocultas)
-        mostrar_ahorcado(oculta)
-    if intentos == 6:
+        mostrar_ahorcado(oculta,intentos)
+    if intentos == 0:
         print("Intentos maximos alcanzados \n Perdiste!")
-        salir == True
+        salir = True
     elif oculta == palabra_ahorcado:
-        mostrar_ahorcado(oculta)
+        mostrar_ahorcado(oculta,intentos)
         print("Felicitaciones!")
         salir = True
 
