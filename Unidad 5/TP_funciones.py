@@ -1,3 +1,4 @@
+import math
 def hola_mundo():
     return print("Hola Mundo!")
 
@@ -6,6 +7,10 @@ def saludar_usuario(nombre):
 
 def informacion_personal(nombre,apellido,edad,residencia):
     return print(f"Soy {nombre} {apellido}, tengo {edad} años y vivo en {residencia}")
+
+def calcular_area_circulo(radio):
+    pi = math.pi
+    return pi*(radio**2)
 
 
 
