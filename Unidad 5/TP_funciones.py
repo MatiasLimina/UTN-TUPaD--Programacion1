@@ -14,6 +14,9 @@ def calcular_area_circulo(radio):
 def calcular_perimetro_circulo(radio):
     return 2*PI*radio
 
+def segundos_a_horas(segundos):
+    print(f"{segundos} segundos convertido a horas equivale a:")
+    return print(f"{segundos/3600}")
 #Main
 PI = math.pi
 nombre = input("Ingrese su nombre ").capitalize()
@@ -21,8 +24,10 @@ apellido = input("Ingrese su apellido ").capitalize()
 edad = int(input("Ingrese su edad "))
 residencia = input("Ingrese su lugar de residencia ").capitalize()
 radio = float(input("Ingrese el radio de un circulo"))
+segundos = int(input("Ingrese una cantidad de segundos: "))
 hola_mundo()
 saludar_usuario(nombre)
 informacion_personal(nombre,apellido,edad,residencia)
 print("Area del circulo: ",calcular_area_circulo(radio))
 print("Perimetro del circulo: ",calcular_perimetro_circulo(radio))
+segundos_a_horas(segundos)
