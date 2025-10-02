@@ -9,12 +9,13 @@ def informacion_personal(nombre,apellido,edad,residencia):
     return print(f"Soy {nombre} {apellido}, tengo {edad} años y vivo en {residencia}")
 
 def calcular_area_circulo(radio):
-    pi = math.pi
-    return pi*(radio**2)
+    return PI*(radio**2)
 
-
+def calcular_perimetro_circulo(radio):
+    return 2*PI*radio
 
 #Main
+PI = math.pi
 nombre = input("Ingrese su nombre ").capitalize()
 apellido = input("Ingrese su apellido ").capitalize()
 edad = int(input("Ingrese su edad "))
