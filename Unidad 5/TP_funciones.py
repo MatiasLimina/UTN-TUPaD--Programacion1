@@ -1,29 +1,29 @@
 import math
-def hola_mundo():
+def hola_mundo(): #Ejercicio 1
     return print("Hola Mundo!")
 
-def saludar_usuario(nombre):
+def saludar_usuario(nombre): #Ejercicio 2
     return print(f"Hola {nombre}!")
 
-def informacion_personal(nombre,apellido,edad,residencia):
+def informacion_personal(nombre,apellido,edad,residencia): #Ejercicio 3
     return print(f"Soy {nombre} {apellido}, tengo {edad} años y vivo en {residencia}")
 
-def calcular_area_circulo(radio):
+def calcular_area_circulo(radio):#Ejercicio 4
     return PI*(radio ** 2)
 
-def calcular_perimetro_circulo(radio):
+def calcular_perimetro_circulo(radio): #Ejercicio 4.1
     return 2*PI*radio
 
-def segundos_a_horas(segundos):
+def segundos_a_horas(segundos): #Ejercicio 5
     print(f"{segundos} segundos convertido a horas equivale a:")
     return print(f"{segundos/3600}")
 
-def tabla_multiplicar(numero):
+def tabla_multiplicar(numero):  #Ejercicio 6
     print(f"Tabla de multiplicar de {numero}")
     for i in range(1,11):
         print(f"{i} x {numero} = {i*numero}")
 
-def operaciones_basicas(a,b):
+def operaciones_basicas(a,b): #Ejercicio 7
     suma = a+b
     resta = a-b
     multiplicacion = a*b
