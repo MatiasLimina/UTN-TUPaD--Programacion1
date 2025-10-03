@@ -34,8 +34,12 @@ def operaciones_basicas(a,b): #Ejercicio 7
 def calcular_imc(peso,altura): #Ejercicio 8
     return (peso/altura)
 
-def celsius_a_fahrenheit(celsius):
+def celsius_a_fahrenheit(celsius): #Ejercicio 9
     return (celsius*(9/5))+32
+
+def calcular_promedio(a, b, c): #Ejercicio 10
+    suma = a+b+c
+    return suma/3
 #Main
 PI = math.pi
 nombre = input("Ingrese su nombre ").capitalize()
@@ -66,3 +70,9 @@ print(f"Su IMC es de {imc}")
 grados_celsius = float(input("Ingrese una cantidad de grados Celsius que desee pasar a Fahrenheit "))
 grados_fahrenheit = round(celsius_a_fahrenheit(grados_celsius),1)
 print (f"{grados_celsius}°C equivalen a {grados_fahrenheit}°F ")
+print("Ingrese 3 numeros para calcular su promedio ")
+prom_num1 = int(input())
+prom_num2 = int(input())
+prom_num3 = int(input())
+promedio = calcular_promedio(prom_num1,prom_num2,prom_num3)
+print (f"El promedio entre {prom_num1}, {prom_num2} y {prom_num3} es de {promedio}")
