@@ -30,6 +30,10 @@ def operaciones_basicas(a,b): #Ejercicio 7
     division = a/b
     operaciones = (suma,resta,multiplicacion,division)
     return operaciones
+
+def calcular_imc(peso,altura): #Ejercicio 8
+    return (peso/altura)
+
 #Main
 PI = math.pi
 nombre = input("Ingrese su nombre ").capitalize()
@@ -53,3 +57,7 @@ aux_op_basicas = ["Suma: ","Resta: ","Multiplicación: ","División: "]
 print(f"Las operacion básicas entre {num1} y {num2} son: ")
 for i in range(len(ope_basicas)):
     print(f"{aux_op_basicas[i]}{ope_basicas[i]}")
+peso = float(input("Ingrese su peso en kilogramos "))
+altura = float(input("Ingrese su altura en metros "))
+imc = round(calcular_imc(peso,altura),2)
+print(f"Su IMC es de {imc}")
