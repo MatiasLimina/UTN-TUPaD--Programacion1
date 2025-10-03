@@ -34,13 +34,15 @@ def operaciones_basicas(a,b): #Ejercicio 7
 def calcular_imc(peso,altura): #Ejercicio 8
     return (peso/altura)
 
+def celsius_a_fahrenheit(celsius):
+    return (celsius*(9/5))+32
 #Main
 PI = math.pi
 nombre = input("Ingrese su nombre ").capitalize()
 apellido = input("Ingrese su apellido ").capitalize()
 edad = int(input("Ingrese su edad "))
 residencia = input("Ingrese su lugar de residencia ").capitalize()
-radio = float(input("Ingrese el radio de un circulo"))
+radio = float(input("Ingrese el radio de un circulo "))
 segundos = int(input("Ingrese una cantidad de segundos: "))
 num_multiplicar = int(input("Ingrese un numero del que desea saber su tabla de multiplicar hasta el 10 "))
 num1 = int(input("Ingrese el numero 1 "))
@@ -61,3 +63,6 @@ peso = float(input("Ingrese su peso en kilogramos "))
 altura = float(input("Ingrese su altura en metros "))
 imc = round(calcular_imc(peso,altura),2)
 print(f"Su IMC es de {imc}")
+grados_celsius = float(input("Ingrese una cantidad de grados Celsius que desee pasar a Fahrenheit "))
+grados_fahrenheit = round(celsius_a_fahrenheit(grados_celsius),1)
+print (f"{grados_celsius}°C equivalen a {grados_fahrenheit}°F ")
