@@ -16,22 +16,32 @@ frutas = list(precios_frutas.keys())
 print(frutas)
 
 #Ejercicio 4
-def almacenar_contactos():
-    dic_contacts = dict()
-    for i in range(2):
-        dic_contacts[input("Coloque el nombre del contacto ").capitalize()] = int(input("Coloque el numero de telefono "))
-    return dic_contacts
-def buscar_numero(contactos,nombre):
-    num_buscado = contactos.get(nombre)
-    return num_buscado
+# def almacenar_contactos():
+#     dic_contacts = dict()
+#     for i in range(2):
+#         dic_contacts[input("Coloque el nombre del contacto ").capitalize()] = int(input("Coloque el numero de telefono "))
+#     return dic_contacts
+# def buscar_numero(contactos,nombre):
+#     num_buscado = contactos.get(nombre)
+#     return num_buscado
 
+# contactos = almacenar_contactos()
+# print(contactos)
+# nombre = input("Ingrese el nombre de quien desea saber su numero ").capitalize()
+# solicitar_num = buscar_numero(contactos,nombre)
+# if solicitar_num == None:
+#     print("Contacto no encontrado")
+# else:
+#     print(f"El numero de telefono de {nombre} es {solicitar_num}")
 
-contactos = almacenar_contactos()
-print(contactos)
-nombre = input("Ingrese el nombre de quien desea saber su numero ").capitalize()
-solicitar_num = buscar_numero(contactos,nombre)
-print (solicitar_num)
-if solicitar_num == None:
-    print("Contacto no encontrado")
-else:
-    print(f"El numero de telefono de {nombre} es {solicitar_num}")
+#Ejercicio 5
+frase = input("Ingrese una frase").capitalize()
+frase_aux = tuple(frase.split(" "))
+frase_set = set(frase_aux)
+print("Las palabras unicas de la frase indicada son: ",frase_set)
+frase_palabras_repetidas = dict()
+for item in frase_set:
+    frase_palabras_repetidas[item] = frase_aux.count(item)
+print("A continuacion cada palabra y el numero de veces que se repiten")
+for key,value in frase_palabras_repetidas.items():
+    print(f"{key}:{value}")
