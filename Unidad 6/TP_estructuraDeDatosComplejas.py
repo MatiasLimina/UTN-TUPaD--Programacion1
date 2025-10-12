@@ -96,6 +96,12 @@ def consultar_stock(productos):
     else:
         return "No se encontro el producto en nuestro sistema"
 
+def cambiar_stock(productos,objetivo):
+    if objetivo in productos:
+        productos[objetivo] = int(input(f"Ingrese el nuevo stock para {objetivo}"))
+        return productos
+    else:
+        return "No se encontro el producto en nuestro sistema"
 
 productos = {
     "Madera" : 32,
@@ -105,6 +111,9 @@ productos = {
 
 salir = False
 while not salir:
+    print("Nuestros productos: ")
+    for k,v in productos.items(): # "k" de "keys" y "v" de "values"
+        print(f"{k} tiene un stock de {v}")
     opc = input("Que desea hacer: \n 1) Consultar stock de un producto? \n 2) Agragar unidades en un producto \n 3) Agregar un nuevo producto \n 4)Salir \n")
     while not opc.isnumeric() or opc != "1" and opc != "2" and opc != "3" and opc != "4":
         print("Ingreso invalido")
@@ -114,7 +123,13 @@ while not salir:
         aux_1 = consultar_stock(productos)
         print(aux_1)
     elif opc == "2":
-        continue
+        aux_2 = input("De que producto desea cambiar stock? ").capitalize()
+        stock_act = cambiar_stock(productos,aux_2)
+        if not type(stock_act) == int:
+            print(stock_act)
+        else:
+            productos = stock_act
+            print(f"Stock actualizado: {aux_2} ahora tiene un stock de {productos[aux_2]}")
     elif opc == "3":
         continue
     elif opc == "4":
