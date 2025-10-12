@@ -86,3 +86,36 @@ print("Parcial 2: ",set_estudiantes_p2)
 print("Estos son los estudiante que aprobaron ambos parciales: ",set_estudiantes_p1.intersection(set_estudiantes_p2))
 print("Estos son los estudiantes que aprobaron solo uno de los parciales: ",set_estudiantes_p1.symmetric_difference(set_estudiantes_p2))
 print("Estos son los estudiante que aprobaron al menos uno de los parciales : ",set_estudiantes_p1.union(set_estudiantes_p2))
+
+#Ejercicio 8
+def consultar_stock(productos):
+    producto = input("De que producto desea consultar stock? ").capitalize()
+    if producto in productos:
+        stock = productos[producto]
+        return f"El stock de {producto} es de {stock}"
+    else:
+        return "No se encontro el producto en nuestro sistema"
+
+
+productos = {
+    "Madera" : 32,
+    "Piedra" : 23,
+    "Metal" : 10
+}
+
+salir = False
+while not salir:
+    opc = input("Que desea hacer: \n 1) Consultar stock de un producto? \n 2) Agragar unidades en un producto \n 3) Agregar un nuevo producto \n 4)Salir \n")
+    while not opc.isnumeric() or opc != "1" and opc != "2" and opc != "3" and opc != "4":
+        print("Ingreso invalido")
+        opc = input("Que desea hacer: \n 1) Consultar stock de un producto? \n 2) Agragar unidades en un producto \n 3) Agregar un nuevo producto \n 4) Salir \n")
+
+    if opc == "1":
+        aux_1 = consultar_stock(productos)
+        print(aux_1)
+    elif opc == "2":
+        continue
+    elif opc == "3":
+        continue
+    elif opc == "4":
+        salir = True
