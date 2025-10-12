@@ -16,65 +16,65 @@ frutas = list(precios_frutas.keys())
 print(frutas)
 
 #Ejercicio 4
-# def almacenar_contactos():
-#     dic_contacts = dict()
-#     for i in range(2):
-#         dic_contacts[input("Coloque el nombre del contacto ").capitalize()] = int(input("Coloque el numero de telefono "))
-#     return dic_contacts
-# def buscar_numero(contactos,nombre):
-#     num_buscado = contactos.get(nombre)
-#     return num_buscado
+def almacenar_contactos():
+    dic_contacts = dict()
+    for i in range(2):
+        dic_contacts[input("Coloque el nombre del contacto ").capitalize()] = int(input("Coloque el numero de telefono "))
+    return dic_contacts
+def buscar_numero(contactos,nombre):
+    num_buscado = contactos.get(nombre)
+    return num_buscado
 
-# contactos = almacenar_contactos()
-# print(contactos)
-# nombre = input("Ingrese el nombre de quien desea saber su numero ").capitalize()
-# solicitar_num = buscar_numero(contactos,nombre)
-# if solicitar_num == None:
-#     print("Contacto no encontrado")
-# else:
-#     print(f"El numero de telefono de {nombre} es {solicitar_num}")
+contactos = almacenar_contactos()
+print(contactos)
+nombre = input("Ingrese el nombre de quien desea saber su numero ").capitalize()
+solicitar_num = buscar_numero(contactos,nombre)
+if solicitar_num == None:
+    print("Contacto no encontrado")
+else:
+    print(f"El numero de telefono de {nombre} es {solicitar_num}")
 
 #Ejercicio 5
-# frase = input("Ingrese una frase ").capitalize()
-# frase_aux = tuple(frase.split(" "))
-# frase_set = set(frase_aux)
-# print("Las palabras unicas de la frase indicada son: ",frase_set)
-# frase_palabras_repetidas = dict()
-# for item in frase_set:
-#     frase_palabras_repetidas[item] = frase_aux.count(item)
-# print("A continuacion cada palabra y el numero de veces que se repiten")
-# for key,value in frase_palabras_repetidas.items():
-#     print(f"{key}:{value}")
+frase = input("Ingrese una frase ").capitalize()
+frase_aux = tuple(frase.split(" "))
+frase_set = set(frase_aux)
+print("Las palabras unicas de la frase indicada son: ",frase_set)
+frase_palabras_repetidas = dict()
+for item in frase_set:
+    frase_palabras_repetidas[item] = frase_aux.count(item)
+print("A continuacion cada palabra y el numero de veces que se repiten")
+for key,value in frase_palabras_repetidas.items():
+    print(f"{key}:{value}")
 
 #Ejercicio 6
-# def ingreso_alumnos():
-#     alumnos = dict()
-#     for i in range(3):
-#         alumnos[input("Ingrese el nombre de un alumno ").capitalize()] = ingreso_notas()
-#     return alumnos
-# def ingreso_notas():
-#     notas = []
-#     cant_notas = int(input("Cuantas notas desea ingresar? "))
-#     while cant_notas < 0:
-#         print("Ingrese un numero superio al 0")
-#         cant_notas = int(input())
-#     print(f"Ingrese las {cant_notas} notas de este alumno ")
-#     for i in range(cant_notas):
-#         nota_aux = int(input(f"Nota N° {i}: "))
-#         while nota_aux < 0 or nota_aux > 10:
-#             print("Ingreso invalido, la nota debe ser mayor o igual a 0 y menor que 10")
-#             nota_aux = int(input(f"Nota N° {i}: "))
-#         notas.append(nota_aux)
-#     notas_final = tuple(notas)
-#     return notas_final
-# def promedios(notas):
-#     promedio = sum(notas)/len(notas)
-#     return round(promedio,1)
+def ingreso_alumnos():
+    alumnos = dict()
+    for i in range(3):
+        alumnos[input("Ingrese el nombre de un alumno ").capitalize()] = ingreso_notas()
+    return alumnos
+def ingreso_notas():
+    notas = []
+    cant_notas = int(input("Cuantas notas desea ingresar? "))
+    while cant_notas < 0:
+        print("Ingrese un numero superio al 0")
+        cant_notas = int(input())
+    print(f"Ingrese las {cant_notas} notas de este alumno ")
+    for i in range(cant_notas):
+        nota_aux = int(input(f"Nota N° {i}: "))
+        while nota_aux < 0 or nota_aux > 10:
+            print("Ingreso invalido, la nota debe ser mayor o igual a 0 y menor que 10")
+            nota_aux = int(input(f"Nota N° {i}: "))
+        notas.append(nota_aux)
+    notas_final = tuple(notas)
+    return notas_final
+def promedios(notas):
+    promedio = sum(notas)/len(notas)
+    return round(promedio,1)
 
-# alumnos = ingreso_alumnos()
-# print (alumnos)
-# for alumnos,notas in alumnos.items():
-#     print(f"EL alumno {alumnos} tiene un promedio de {promedios(notas)}")
+alumnos = ingreso_alumnos()
+print (alumnos)
+for alumnos,notas in alumnos.items():
+    print(f"EL alumno {alumnos} tiene un promedio de {promedios(notas)}")
 
 #Ejercicio 7
 set_estudiantes_p1 = {1,4,5,3,7}
@@ -110,46 +110,46 @@ def agregar_producto(productos,nuevo):
         productos[nuevo] = 0
         return productos
 
-# productos = {
-#     "Madera" : 32,
-#     "Piedra" : 23,
-#     "Metal" : 10
-# }
+productos = {
+    "Madera" : 32,
+    "Piedra" : 23,
+    "Metal" : 10
+}
 
-# salir = False
-# while not salir:
-#     print("Nuestros productos: ")
-#     for k,v in productos.items(): # "k" de "keys" y "v" de "values"
-#         print(f"{k} tiene un stock de {v}")
-#     opc = input("Que desea hacer: \n 1) Consultar stock de un producto? \n 2) Agragar unidades en un producto \n 3) Agregar un nuevo producto \n 4)Salir \n")
-#     while not opc.isnumeric() or opc != "1" and opc != "2" and opc != "3" and opc != "4":
-#         print("Ingreso invalido")
-#         opc = input("Que desea hacer: \n 1) Consultar stock de un producto? \n 2) Agragar unidades en un producto \n 3) Agregar un nuevo producto \n 4) Salir \n")
+salir = False
+while not salir:
+    print("Nuestros productos: ")
+    for k,v in productos.items(): # "k" de "keys" y "v" de "values"
+        print(f"{k} tiene un stock de {v}")
+    opc = input("Que desea hacer: \n 1) Consultar stock de un producto? \n 2) Agragar unidades en un producto \n 3) Agregar un nuevo producto \n 4)Salir \n")
+    while not opc.isnumeric() or opc != "1" and opc != "2" and opc != "3" and opc != "4":
+        print("Ingreso invalido")
+        opc = input("Que desea hacer: \n 1) Consultar stock de un producto? \n 2) Agragar unidades en un producto \n 3) Agregar un nuevo producto \n 4) Salir \n")
 
-#     if opc == "1":
-#         aux_1 = consultar_stock(productos)
-#         print(aux_1)
-#     elif opc == "2":
-#         aux_2 = input("De que producto desea cambiar stock? ").capitalize()
-#         stock_act = cambiar_stock(productos,aux_2)
-#         if not type(stock_act) == int:
-#             print(stock_act)
-#         else:
-#             productos = stock_act
-#             print(f"Stock actualizado: {aux_2} ahora tiene un stock de {productos[aux_2]}")
-#     elif opc == "3":
-#         aux_3 = input("Que producto desea agregar? ").capitalize()
-#         nuevo_prod = agregar_producto(productos,aux_3)
-#         if not type(nuevo_prod) == dict:
-#             print(nuevo_prod)
-#         else:
-#             productos = nuevo_prod
-#             print ("Productos actualizados")
-#             for k,v in productos.items(): # "k" de "keys" y "v" de "values"
-#                 print(f"{k} tiene un stock de {v}")
+    if opc == "1":
+        aux_1 = consultar_stock(productos)
+        print(aux_1)
+    elif opc == "2":
+        aux_2 = input("De que producto desea cambiar stock? ").capitalize()
+        stock_act = cambiar_stock(productos,aux_2)
+        if not type(stock_act) == int:
+            print(stock_act)
+        else:
+            productos = stock_act
+            print(f"Stock actualizado: {aux_2} ahora tiene un stock de {productos[aux_2]}")
+    elif opc == "3":
+        aux_3 = input("Que producto desea agregar? ").capitalize()
+        nuevo_prod = agregar_producto(productos,aux_3)
+        if not type(nuevo_prod) == dict:
+            print(nuevo_prod)
+        else:
+            productos = nuevo_prod
+            print ("Productos actualizados")
+            for k,v in productos.items(): # "k" de "keys" y "v" de "values"
+                print(f"{k} tiene un stock de {v}")
             
-#     elif opc == "4":
-#         salir = True
+    elif opc == "4":
+        salir = True
 
 #Ejercicio 9
 
@@ -170,3 +170,20 @@ for k in agenda.keys():
         sin_concidencias = True
 if sin_concidencias == True:
     print("No hay nada agendado en esa fecha y horario")
+
+#Ejercicio 10
+pais_capital_og = {
+    "Argentina":"Buenos Aires",
+    "Brasil":"Brasilia",
+    "Chile":"Santiago"
+}
+pais_capital_invertido = {}
+
+for pais,capital in pais_capital_og.items():
+    pais_capital_invertido[capital]=pais
+print("Original:")
+for pais,capital in pais_capital_og.items():
+    print(f"Pais:{pais} Capital:{capital} ")
+print("Invertido")
+for capital,pais in pais_capital_invertido.items():
+    print(f"Capital:{capital} Pais:{pais} ")
