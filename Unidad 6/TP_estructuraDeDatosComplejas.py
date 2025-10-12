@@ -110,43 +110,63 @@ def agregar_producto(productos,nuevo):
         productos[nuevo] = 0
         return productos
 
-productos = {
-    "Madera" : 32,
-    "Piedra" : 23,
-    "Metal" : 10
+# productos = {
+#     "Madera" : 32,
+#     "Piedra" : 23,
+#     "Metal" : 10
+# }
+
+# salir = False
+# while not salir:
+#     print("Nuestros productos: ")
+#     for k,v in productos.items(): # "k" de "keys" y "v" de "values"
+#         print(f"{k} tiene un stock de {v}")
+#     opc = input("Que desea hacer: \n 1) Consultar stock de un producto? \n 2) Agragar unidades en un producto \n 3) Agregar un nuevo producto \n 4)Salir \n")
+#     while not opc.isnumeric() or opc != "1" and opc != "2" and opc != "3" and opc != "4":
+#         print("Ingreso invalido")
+#         opc = input("Que desea hacer: \n 1) Consultar stock de un producto? \n 2) Agragar unidades en un producto \n 3) Agregar un nuevo producto \n 4) Salir \n")
+
+#     if opc == "1":
+#         aux_1 = consultar_stock(productos)
+#         print(aux_1)
+#     elif opc == "2":
+#         aux_2 = input("De que producto desea cambiar stock? ").capitalize()
+#         stock_act = cambiar_stock(productos,aux_2)
+#         if not type(stock_act) == int:
+#             print(stock_act)
+#         else:
+#             productos = stock_act
+#             print(f"Stock actualizado: {aux_2} ahora tiene un stock de {productos[aux_2]}")
+#     elif opc == "3":
+#         aux_3 = input("Que producto desea agregar? ").capitalize()
+#         nuevo_prod = agregar_producto(productos,aux_3)
+#         if not type(nuevo_prod) == dict:
+#             print(nuevo_prod)
+#         else:
+#             productos = nuevo_prod
+#             print ("Productos actualizados")
+#             for k,v in productos.items(): # "k" de "keys" y "v" de "values"
+#                 print(f"{k} tiene un stock de {v}")
+            
+#     elif opc == "4":
+#         salir = True
+
+#Ejercicio 9
+
+agenda = {
+    ("lunes","19:00") : "Gym",
+    ("martes","10:00"): "Reunion",
+    ("miercoles","13:00") : "Almuerzo"
 }
 
-salir = False
-while not salir:
-    print("Nuestros productos: ")
-    for k,v in productos.items(): # "k" de "keys" y "v" de "values"
-        print(f"{k} tiene un stock de {v}")
-    opc = input("Que desea hacer: \n 1) Consultar stock de un producto? \n 2) Agragar unidades en un producto \n 3) Agregar un nuevo producto \n 4)Salir \n")
-    while not opc.isnumeric() or opc != "1" and opc != "2" and opc != "3" and opc != "4":
-        print("Ingreso invalido")
-        opc = input("Que desea hacer: \n 1) Consultar stock de un producto? \n 2) Agragar unidades en un producto \n 3) Agregar un nuevo producto \n 4) Salir \n")
-
-    if opc == "1":
-        aux_1 = consultar_stock(productos)
-        print(aux_1)
-    elif opc == "2":
-        aux_2 = input("De que producto desea cambiar stock? ").capitalize()
-        stock_act = cambiar_stock(productos,aux_2)
-        if not type(stock_act) == int:
-            print(stock_act)
-        else:
-            productos = stock_act
-            print(f"Stock actualizado: {aux_2} ahora tiene un stock de {productos[aux_2]}")
-    elif opc == "3":
-        aux_3 = input("Que producto desea agregar? ").capitalize()
-        nuevo_prod = agregar_producto(productos,aux_3)
-        if not type(nuevo_prod) == dict:
-            print(nuevo_prod)
-        else:
-            productos = nuevo_prod
-            print ("Productos actualizados")
-            for k,v in productos.items(): # "k" de "keys" y "v" de "values"
-                print(f"{k} tiene un stock de {v}")
-            
-    elif opc == "4":
-        salir = True
+consulta = input("Ingrese dia y horario para consultar actividad programada").lower()
+aux_consulta = tuple(consulta.split())
+for k in agenda.keys():
+    if aux_consulta == k:
+        print(f"La actividad programada en ese dia a ese horario es: {agenda[k]}")
+        sin_concidencias = False
+        break
+    else:
+        sin_concidencias = True
+if sin_concidencias == True:
+    print("No hay nada agendado en esa fecha y horario")
