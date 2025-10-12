@@ -103,6 +103,13 @@ def cambiar_stock(productos,objetivo):
     else:
         return "No se encontro el producto en nuestro sistema"
 
+def agregar_producto(productos,nuevo):
+    if nuevo in productos:
+        return f"{nuevo} ya se encuentra en el sistema"
+    else:
+        productos[nuevo] = 0
+        return productos
+
 productos = {
     "Madera" : 32,
     "Piedra" : 23,
@@ -131,6 +138,15 @@ while not salir:
             productos = stock_act
             print(f"Stock actualizado: {aux_2} ahora tiene un stock de {productos[aux_2]}")
     elif opc == "3":
-        continue
+        aux_3 = input("Que producto desea agregar? ").capitalize()
+        nuevo_prod = agregar_producto(productos,aux_3)
+        if not type(nuevo_prod) == dict:
+            print(nuevo_prod)
+        else:
+            productos = nuevo_prod
+            print ("Productos actualizados")
+            for k,v in productos.items(): # "k" de "keys" y "v" de "values"
+                print(f"{k} tiene un stock de {v}")
+            
     elif opc == "4":
         salir = True
