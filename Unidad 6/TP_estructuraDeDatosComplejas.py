@@ -35,7 +35,7 @@ print(frutas)
 #     print(f"El numero de telefono de {nombre} es {solicitar_num}")
 
 #Ejercicio 5
-frase = input("Ingrese una frase").capitalize()
+frase = input("Ingrese una frase ").capitalize()
 frase_aux = tuple(frase.split(" "))
 frase_set = set(frase_aux)
 print("Las palabras unicas de la frase indicada son: ",frase_set)
@@ -45,3 +45,33 @@ for item in frase_set:
 print("A continuacion cada palabra y el numero de veces que se repiten")
 for key,value in frase_palabras_repetidas.items():
     print(f"{key}:{value}")
+
+#Ejercicio 6
+def ingreso_alumnos():
+    alumnos = dict()
+    for i in range(3):
+        alumnos[input("Ingrese el nombre de un alumno ").capitalize()] = ingreso_notas()
+    return alumnos
+def ingreso_notas():
+    notas = []
+    cant_notas = int(input("Cuantas notas desea ingresar? "))
+    while cant_notas < 0:
+        print("Ingrese un numero superio al 0")
+        cant_notas = int(input())
+    print(f"Ingrese las {cant_notas} notas de este alumno ")
+    for i in range(cant_notas):
+        nota_aux = int(input(f"Nota N° {i}: "))
+        while nota_aux < 0 or nota_aux > 10:
+            print("Ingreso invalido, la nota debe ser mayor o igual a 0 y menor que 10")
+            nota_aux = int(input(f"Nota N° {i}: "))
+        notas.append(nota_aux)
+    notas_final = tuple(notas)
+    return notas_final
+def promedios(notas):
+    promedio = sum(notas)/len(notas)
+    return round(promedio,1)
+
+alumnos = ingreso_alumnos()
+print (alumnos)
+for alumnos,notas in alumnos.items():
+    print(f"EL alumno {alumnos} tiene un promedio de {promedios(notas)}")
