@@ -1,9 +1,6 @@
 import csv
-productos = [
-    {"nombre":"papa","precio":15},
-    {"nombre":"tomate","precio":10}
-]
-def abrir_archivo():
+
+def abrir_archivo(): #Abre el archivo
     try:
         with open("Productos.csv","w",newline="") as archivo:
             campos = ["nombre","precio"]
@@ -12,13 +9,12 @@ def abrir_archivo():
             escritor.writerows(productos)
     except FileExistsError:
         print("El archivo ya existe")
-def mostrar_archivo():
+def mostrar_archivo(): #Muestra productos
     with open("Productos.csv","r") as archivo:
             lector = csv.DictReader(archivo)
             for fila in lector:
                 print(fila)
-def menu(opc):
-
+def menu(opc): #Elige una opcion
     match opc:
         case "1":
             mostrar_archivo()
@@ -29,13 +25,18 @@ def menu(opc):
         case "4":
             return False
 
-def elegir_menu():
+def elegir_menu(): #Muestra menu
     print("====== MENU =====")
     print("1) Mostrar productos registrados \n 2) Agregar nuevo producto \n 3) Eliminar producto \n 4) Salir ")
     print("================")
     opcion = input("Eliga una opción... ")
     return opcion
 
+#main
+productos = [
+    {"nombre":"papa","precio":15},
+    {"nombre":"tomate","precio":10}
+]
 abrir_archivo()
 salir = False
 while not salir:
