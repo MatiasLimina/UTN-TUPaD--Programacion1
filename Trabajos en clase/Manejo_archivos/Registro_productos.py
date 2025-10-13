@@ -9,19 +9,16 @@ def crear_archivo(): #Abre el archivo
             escritor.writerows(productos)
     except FileExistsError:
         print("El archivo ya existe")
-#Mostrar productos
-# with open("Productos.csv","r") as archivo:
-#     lector = csv.DictReader(archivo)
-#     for fila in lector:
-#         print(fila)
+
 def leer_archivo(): #Lee el archivo 
     with open("Productos.csv","r") as archivo:
             lector = csv.DictReader(archivo)
             return list(lector)
-def menu(opc): #Elige una opcion
+
+def menu(opc,lista): #Elige una opcion
     match opc:
         case "1":
-            #mostrar_archivo()
+            mostrar_productos(lista)
         case "2":
             print(2)
         case "3":
@@ -35,8 +32,10 @@ def elegir_menu(): #Muestra menu
     print("================")
     opcion = input("Eliga una opción... ")
     return opcion
-
-
+#NO ANDA
+def mostrar_productos(lista):
+    for i in range(len(lista)):
+        
 #main
 productos = [
     {"nombre":"papa","precio":15},
@@ -47,6 +46,6 @@ lista_productos = leer_archivo()
 salir = False
 while not salir:
     opcion = elegir_menu()
-    aux = menu(opcion)
+    aux = menu(opcion,lista_productos)
     if aux == False:
         salir = True
