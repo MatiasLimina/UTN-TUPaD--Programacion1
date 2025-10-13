@@ -37,5 +37,9 @@ def elegir_menu():
     return opcion
 
 abrir_archivo()
-opcion = elegir_menu()
-menu(opcion)
+salir = False
+while not salir:
+    opcion = elegir_menu()
+    aux = menu(opcion)
+    if aux == False:
+        salir = True
