@@ -10,22 +10,24 @@ def abrir_archivo():
             escritor = csv.DictWriter(archivo,fieldnames=campos)
             escritor.writeheader()
             escritor.writerows(productos)
-        with open("Productos.csv","r") as archivo:
+    except FileExistsError:
+        print("El archivo ya existe")
+def mostrar_archivo():
+    with open("Productos.csv","r") as archivo:
             lector = csv.DictReader(archivo)
             for fila in lector:
                 print(fila)
-            
-    except FileExistsError:
-        print("El archivo ya existe")
+def menu(opc):
 
-# def menu(opc):
-#     match opc:
-#         case "1":
-            
-#         case "2":
-            
-#         case "3":
-            
+    match opc:
+        case "1":
+            mostrar_archivo()
+        case "2":
+            print(2)
+        case "3":
+            print(3)
+        case "4":
+            return False
 
 def elegir_menu():
     print("====== MENU =====")
@@ -33,3 +35,7 @@ def elegir_menu():
     print("================")
     opcion = input("Eliga una opción... ")
     return opcion
+
+abrir_archivo()
+opcion = elegir_menu()
+menu(opcion)
