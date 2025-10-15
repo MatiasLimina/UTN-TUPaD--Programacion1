@@ -6,8 +6,12 @@ productos = [
     ] 
 RUTA_ARCHIVO = "Programacion 1/Universidad/Archivos/Productos.txt"
 def crear_archivo():
-    with open(RUTA_ARCHIVO,"w") as archivo:
-        archivo.writelines(productos)
+    try:
+        with open(RUTA_ARCHIVO, "x") as archivo:
+            archivo.writelines(productos)
+            print("Archivo 'Productos.txt' creado por primera vez.")
+    except FileExistsError:
+        print("El archivo 'Productos.txt' ya existe. No se sobreescribe.")
 archiv_productos = crear_archivo()
 #Ejercicio 2
 
