@@ -1,3 +1,4 @@
 Banana,120.2,2
 Manzana,100.0,4
 Pera,200.4,7
+Soja,12,4 

@@ -28,7 +28,7 @@ def crear_diccionario(lista:type=list): #Ejercicio 4.1
         lista_productos.append({"Productos": producto, "Precio": precio, "Cantidad": cantidad})
     return lista_productos
 
-def validar_nuevo_producto(n_producto,diccionario):
+def validar_nuevo_producto(n_producto,diccionario): #Ejercicio 3.1
     nuevo_aux = n_producto.split(",")
     if len(nuevo_aux) != 3:
         print("ERROR: ingreso los datos en el formato incorrecto")
@@ -49,9 +49,16 @@ def validar_nuevo_producto(n_producto,diccionario):
             except ValueError:
                 print("ERROR: debe ingresar un numero entero")
                 return None
-            return n_producto
+            
+            producto = producto.capitalize()
+            nuevo_aux[0] = producto
+            return ",".join(nuevo_aux)
 
-#Ejercicio 3
+def agregar_producto(n_producto):
+    with open(RUTA_ARCHIVO,"a") as archivo:
+        archivo.write(f"{n_producto} \n")
+
+#MAIN
 crear_archivo()
 aux_productos = leer_archivo()
 print (aux_productos)
@@ -74,4 +81,9 @@ while not salir:
         case 1: #Ejercicio 3
             aux_nuevo_producto = input("Coloque la informacion del nuevo producto a agregar: (producto,precio,cantidad)").strip()
             nuevo_producto = validar_nuevo_producto(aux_nuevo_producto,lista_diccionarios_productos)
-            print(nuevo_producto)
+            if nuevo_producto == None:
+                print("Error al ingresar nuevo producto, no será agregado al sistema.")
+                continue
+            else:
+                agregar_producto(nuevo_producto)
+                print(f"Producto '{nuevo_producto.split(',')[0]}' agregado con éxito.")
