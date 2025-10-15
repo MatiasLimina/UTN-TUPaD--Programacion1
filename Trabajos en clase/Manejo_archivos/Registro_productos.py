@@ -1,5 +1,5 @@
 import csv
-#armar una lista vacia, usar el realine y pasar cada linea como diccionario "a mano", no usar la libreria csv
+#armar una lista vacia, usar el realine y pasar cada linea como diccionario "a mano", no usar la libreria csv,prestar atencion a la decodificacion en la lectura
 def crear_archivo(): #Abre el archivo
     try:
         with open("Productos.csv","w",newline="") as archivo:
