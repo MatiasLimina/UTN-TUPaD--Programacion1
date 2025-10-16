@@ -30,12 +30,12 @@ def crear_diccionario(lista:type=list): #Ejercicio 4.1
 
 def validar_nuevo_producto(n_producto,diccionario): #Ejercicio 3.1
     nuevo_aux = n_producto.split(",")
-    if len(nuevo_aux) != 3:
+    if len(nuevo_aux) != 3: #Controla cantidad de campos 
         print("ERROR: ingreso los datos en el formato incorrecto")
         return None
     else:
-        producto,precio,cantidad = n_producto.split(",")
-        if producto in diccionario:
+        producto, precio, cantidad = n_producto.split(",") #Busca si el producto a agregar esta en el sistema
+        if any(d.get("Productos", "").lower() == producto.lower() for d in diccionario):
             print("Este producto ya se encuentra en el sistema")
             return None
         else:
@@ -54,9 +54,19 @@ def validar_nuevo_producto(n_producto,diccionario): #Ejercicio 3.1
             nuevo_aux[0] = producto
             return ",".join(nuevo_aux)
 
-def agregar_producto(n_producto):
+def agregar_producto(n_producto): #Ejercicio 3
     with open(RUTA_ARCHIVO,"a") as archivo:
         archivo.write(f"{n_producto} \n")
+
+def buscar_producto (b_producto,diccionario):
+    encontrado = False
+    for producto_dict in diccionario:
+        if producto_dict.get("Productos", "") == b_producto:
+            print(f"Producto encontrado: {b_producto}")
+            encontrado = True
+            return f"Producto: {producto_dict["Productos"]} / Precio: {producto_dict["Precio"]} / Cantidad: {producto_dict["Cantidad"]}" 
+    if not encontrado:
+        print(f"El producto '{b_producto}' no fue encontrado.")
 
 #MAIN
 crear_archivo()
@@ -87,3 +97,9 @@ while not salir:
             else:
                 agregar_producto(nuevo_producto)
                 print(f"Producto '{nuevo_producto.split(',')[0]}' agregado con éxito.")
+        case 2:
+            busqueda_producto = input("Ingrese el prodcuto que desea buscar ").strip().capitalize()
+            producto_encontrado = buscar_producto(busqueda_producto,lista_diccionarios_productos)
+            print(producto_encontrado)
+        case 3:
+            salir = True
