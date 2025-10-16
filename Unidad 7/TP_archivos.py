@@ -58,7 +58,7 @@ def agregar_producto(n_producto): #Ejercicio 3
     with open(RUTA_ARCHIVO,"a") as archivo:
         archivo.write(f"{n_producto} \n")
 
-def buscar_producto (b_producto,diccionario):
+def buscar_producto (b_producto,diccionario): #Ejercicio 5
     encontrado = False
     for producto_dict in diccionario:
         if producto_dict.get("Productos", "") == b_producto:
@@ -97,9 +97,11 @@ while not salir:
             else:
                 agregar_producto(nuevo_producto)
                 print(f"Producto '{nuevo_producto.split(',')[0]}' agregado con éxito.")
-        case 2:
+        case 2: #Ejercicio 5
             busqueda_producto = input("Ingrese el prodcuto que desea buscar ").strip().capitalize()
             producto_encontrado = buscar_producto(busqueda_producto,lista_diccionarios_productos)
             print(producto_encontrado)
         case 3:
             salir = True
+
+#El ejercicio 6 me parecio redundante por que la funcion del ejercicio 3 ya agrega nuevos productos
