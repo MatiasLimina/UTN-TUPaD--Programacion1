@@ -66,7 +66,7 @@ def buscar_producto (b_producto,diccionario):
             encontrado = True
             return f"Producto: {producto_dict["Productos"]} / Precio: {producto_dict["Precio"]} / Cantidad: {producto_dict["Cantidad"]}" 
     if not encontrado:
-        print(f"El producto '{b_producto}' no fue encontrado.")
+        return f"El producto '{b_producto}' no fue encontrado."
 
 #MAIN
 crear_archivo()
