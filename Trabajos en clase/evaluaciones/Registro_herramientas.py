@@ -33,10 +33,37 @@ def crear_archivo():
                 escritor.writeheader()
         except IOError:
             print("Error al crear el archivo")
+
+def verificar_linea(linea):
+    for campo in linea: #Revisa que no haya campos vacios
+        if linea[campo] == "":
+            print (f"ERROR: {[campo]} esta vacio")
+            return False
+    try:#Verifica que el numero sea un entero
+        stock_entero=int(linea["stock"])
+        if stock_entero >= 0:
+            linea["stock"] = stock_entero
+        else:
+            print("ERROR: El stock debe ser un numero igual o mayor a cero")
+            return False
+    except ValueError:
+        print(f"ERROR: el Stock debe ser un número entero")
+        return False
+    try:
+        precio_float = float(linea["precio"])
+        if precio_float >= 0:
+            linea["precio"] = precio_float
+        else:
+            print("ERROR: El precio debe ser número igual o mayor a cero")
+            return False
+    except ValueError:
+        print("ERROR: el precio debe ser un número")
+        return False
+    return linea
 #Cargar herramientas
 def cargar_herramientas(herramientas):
     nueva_herramienta = herramienta_nueva()
-    
+
     pass
 def herramienta_nueva():
     print("Ingrese los datos de la nueva herramienta")
