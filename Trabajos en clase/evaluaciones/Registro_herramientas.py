@@ -33,10 +33,25 @@ def crear_archivo():
                 escritor.writeheader()
         except IOError:
             print("Error al crear el archivo")
+#Cargar herramientas
+def cargar_herramientas(herramientas):
+    nueva_herramienta = herramienta_nueva()
+    
+    pass
+def herramienta_nueva():
+    print("Ingrese los datos de la nueva herramienta")
+    nombre = input("Ingrese el nombre de la nueva herramienta: ")
+    stock = input("Ingrese el stock de la nueva herramienta: ")
+    precio = input("Ingrese el precio de la nueva herramienta: ")
+    herramienta_nueva = {"nombre":nombre, "stock":stock, "precio":precio}
+    print (herramienta_nueva)
 
 def main():
-    leer_archivo()
-    #crear_archivo()
+    herramientas=leer_archivo()
+    print(herramientas)
+    for i in herramientas:
+        print(f"Herramienta:{i["nombre"]} Stock: {i["stock"]} Precio: ${i["precio"]}")
+    
     salir = False
     while not salir:
         opc = input("Ingrese una opción:\n 1) Cargar herramienta\n 2) Mostrar herramientas registradas\n 3) Modificar herramienta(Stock/Precio)\n 4) Elimina herramienta\n 5) Consultar disponibilidad\n 6) Listar productos sin stock\n 7) Salir\n Eliga una opción... ")
