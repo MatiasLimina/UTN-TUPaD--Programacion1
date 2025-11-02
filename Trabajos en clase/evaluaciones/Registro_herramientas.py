@@ -172,7 +172,12 @@ def eliminar_herramienta(herramientas):
             return herramientas
     print("No se encontro la herramienta en el sistema")
     return herramientas
-    
+
+def consultar_disponibilidad(herramientas):
+    disponibilidad = input("Que herramienta desea consultar disponibilidad? ").strip().capitalize()
+    for h in herramientas:
+        if h["nombre"] == disponibilidad:
+            print(f"Herramienta:{h["nombre"]} Stock: {h["stock"]} Precio: ${h["precio"]}")
 def main():
     herramientas=leer_archivo()
     salir = False
@@ -192,7 +197,7 @@ def main():
                 herramientas = eliminar_herramienta(herramientas)
             case "5":
                 #Consultar disponibilidad
-                continue
+                consultar_disponibilidad(herramientas)
             case "6":
                 #Listar producto sin stock
                 continue
