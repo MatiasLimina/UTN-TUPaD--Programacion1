@@ -1,4 +1,6 @@
 nombre,stock,precio
-Martillo,15,2500
-Destornillador,20,1200
-Taladro,8,
+Martillo,15,2500.0
+Destornillador,20,1200.0
+Atornillador,4,12333.0
+Tornillo,45,30.5
+Sopapa,2,56.67

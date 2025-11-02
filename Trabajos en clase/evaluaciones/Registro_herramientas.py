@@ -42,6 +42,8 @@ def verificar_linea(linea,num_linea):
         if linea[campo] == "":
             print (f"ERROR LINEA {num_linea}: {[campo]} esta vacio")
             return False
+        if campo == "nombre":
+            linea[campo]=linea[campo].strip().capitalize()
     try:#Verifica que el numero sea un entero
         stock_entero=int(linea["stock"])
         if stock_entero >= 0:
@@ -64,25 +66,71 @@ def verificar_linea(linea,num_linea):
         return False
     return linea
 
+def modificar_archivo(herramientas):
+    try:
+        with open(RUTA_ARCHIVO,"w",newline="") as archivo:
+            escritor = csv.DictWriter(archivo,fieldnames=ENCABEZADOS)
+            escritor.writeheader()
+            escritor.writerows(herramientas)
+    except IOError:
+        print("Error al modificar el archivo")
 
+def agregar_linea(linea,herramientas):
+    linea = verificar_linea(linea,len(herramientas)+1)
+    if linea == False:
+        print("Accion abortada, fallo de verificacion")
+    else:
+        try:
+            with open(RUTA_ARCHIVO,"a",newline="") as archivo:
+                escritor = csv.DictWriter(archivo,fieldnames=ENCABEZADOS)
+                escritor.writerow(linea)
+        except IOError:
+            print("Error al acceder al archivo")
 #Cargar herramientas
-
-
-def main():
-    herramientas=leer_archivo()
+def cargar_herramientas(herramientas):
+    print("Cuantas herramientas desea agregar?")
+    while True:
+        try:
+            cantidad_agregar = int(input())
+            if cantidad_agregar < 0:
+                print("ERROR: Debe ingresar un número positivo.")
+                continue
+            break  # Si el input es válido, salimos del bucle
+        except ValueError:
+            print("ERROR: Debe ingresar un numero entero.")
+    
+    for i in range(cantidad_agregar):
+        print(f"\n--- Herramienta {i+1} de {cantidad_agregar} ---")
+        nombre = input("Nombre: ").strip().capitalize()
+        stock = input("Stock: ").strip()
+        precio = input("Precio: ").strip()
+        aux = {"nombre":nombre,"stock":stock,"precio":precio}
+        if any(e["nombre"] == aux["nombre"] for e in herramientas):
+            print(f"La herramienta {aux['nombre']} ya se encuentra en el sistema")
+            continue
+        else:
+            # # Pasamos la lista 'herramientas' para que agregar_linea funcione
+            # agregar_linea(aux, herramientas)
+            # # Actualizamos la lista en memoria para la siguiente iteración
+            # herramientas = leer_archivo()
+            herramientas.append(aux)
+            modificar_archivo(herramientas)
+            print(f"Herramienta ´{aux["nombre"]}´ cargada con exito!")
+#Mostrar herramientas
+def mostrar_herramientas(herramientas):
     for i in herramientas:
         print(f"Herramienta:{i["nombre"]} Stock: {i["stock"]} Precio: ${i["precio"]}")
-    
+def main():
+    herramientas=leer_archivo()
     salir = False
     while not salir:
         opc = input("Ingrese una opción:\n 1) Cargar herramienta\n 2) Mostrar herramientas registradas\n 3) Modificar herramienta(Stock/Precio)\n 4) Elimina herramienta\n 5) Consultar disponibilidad\n 6) Listar productos sin stock\n 7) Salir\n Eliga una opción... ")
         match opc:
             case "1":
-                #Cargar herramientas
-                continue
+                cargar_herramientas(herramientas)
             case "2":
                 #Mostrar herramientas
-                continue
+                mostrar_herramientas(herramientas)
             case "3":
                 #Modificar herramientas
                 continue
