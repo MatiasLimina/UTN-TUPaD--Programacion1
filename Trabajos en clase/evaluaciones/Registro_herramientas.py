@@ -4,78 +4,72 @@ import os
 
 # 1. Obtiene la ruta absoluta del directorio donde está ESTE script.
 script_dir = os.path.dirname(os.path.abspath(__file__))
-
 # 2. Une esa ruta con el nombre del archivo.
 RUTA_ARCHIVO = os.path.join(script_dir, "herramientas.csv")
-
+ENCABEZADOS = ["nombre","stock","precio"]
+#Manejo del archivo
 def leer_archivo():
-    with open (RUTA_ARCHIVO,"r",newline="", encoding="utf-8") as archivo:
-        try:
-            lector = csv.DictReader(archivo)
-            herramientas = list(lector)
+    crear_archivo()
+    try:
+        with open(RUTA_ARCHIVO, "r", newline="", encoding="utf-8") as archivo:
+            lector = csv.DictReader(archivo,fieldnames=ENCABEZADOS)
+            herramientas = []
+            contador = 0
+            for linea in lector:
+                contador += 1
+                aux = verificar_linea(linea,contador)
+                if aux != False:
+                    herramientas.append(aux)
             if not herramientas:
                 print("No hay herramientas registradas")
-                return herramientas
-            else:
-                return herramientas
-        except IOError:
-            print("Ocurrio un error a la hora de leer el archivo")
-        except FileNotFoundError:
-            print("El archivo no existe. Se creara uno nuevo")
-            crear_archivo()
+            return herramientas
+    except IOError:
+        print("Ocurrió un error a la hora de leer el archivo")
+        return []  # Devolvemos una lista vacía para que el programa pueda continuar
 
 def crear_archivo():
     if not os.path.exists(RUTA_ARCHIVO):
         try:
             with open(RUTA_ARCHIVO,"w",newline="") as archivo:
-                encabezados = ["nombre","stock","precio"]
-                escritor = csv.DictWriter(archivo,fieldnames=encabezados)
+                
+                escritor = csv.DictWriter(archivo,fieldnames=ENCABEZADOS)
                 escritor.writeheader()
         except IOError:
             print("Error al crear el archivo")
 
-def verificar_linea(linea):
+def verificar_linea(linea,num_linea):
     for campo in linea: #Revisa que no haya campos vacios
         if linea[campo] == "":
-            print (f"ERROR: {[campo]} esta vacio")
+            print (f"ERROR LINEA {num_linea}: {[campo]} esta vacio")
             return False
     try:#Verifica que el numero sea un entero
         stock_entero=int(linea["stock"])
         if stock_entero >= 0:
             linea["stock"] = stock_entero
         else:
-            print("ERROR: El stock debe ser un numero igual o mayor a cero")
+            print(f"ERROR LINEA {num_linea}: El stock debe ser un numero igual o mayor a cero")
             return False
     except ValueError:
-        print(f"ERROR: el Stock debe ser un número entero")
+        print(f"ERROR LINEA {num_linea}: el Stock debe ser un número entero")
         return False
     try:
         precio_float = float(linea["precio"])
         if precio_float >= 0:
             linea["precio"] = precio_float
         else:
-            print("ERROR: El precio debe ser número igual o mayor a cero")
+            print(f"ERROR LINEA {num_linea}: El precio debe ser número igual o mayor a cero")
             return False
     except ValueError:
-        print("ERROR: el precio debe ser un número")
+        print(f"ERROR LINEA {num_linea}: el precio debe ser un número")
         return False
     return linea
-#Cargar herramientas
-def cargar_herramientas(herramientas):
-    nueva_herramienta = herramienta_nueva()
 
-    pass
-def herramienta_nueva():
-    print("Ingrese los datos de la nueva herramienta")
-    nombre = input("Ingrese el nombre de la nueva herramienta: ")
-    stock = input("Ingrese el stock de la nueva herramienta: ")
-    precio = input("Ingrese el precio de la nueva herramienta: ")
-    herramienta_nueva = {"nombre":nombre, "stock":stock, "precio":precio}
-    print (herramienta_nueva)
+
+#Cargar herramientas
+
 
 def main():
     herramientas=leer_archivo()
-    print(herramientas)
     for i in herramientas:
         print(f"Herramienta:{i["nombre"]} Stock: {i["stock"]} Precio: ${i["precio"]}")
     
@@ -102,6 +96,7 @@ def main():
                 #Listar producto sin stock
                 continue
             case "7":
+                #Salir
                 salir = True
 if __name__ == "__main__":
     main()
