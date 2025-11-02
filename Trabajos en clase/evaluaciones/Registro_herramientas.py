@@ -161,6 +161,18 @@ def modificar_herramientas(herramientas):
     
     return herramientas
 
+def eliminar_herramienta(herramientas):
+    mostrar_herramientas(herramientas)
+    h_a_eliminar = input("Ingrese la herramienta que quiere eliminar... ").strip().capitalize()
+    for h in herramientas:
+        if h["nombre"] == h_a_eliminar:
+            herramientas.remove(h)
+            modificar_archivo(herramientas)
+            print("Herramienta eliminada con exito")
+            return herramientas
+    print("No se encontro la herramienta en el sistema")
+    return herramientas
+    
 def main():
     herramientas=leer_archivo()
     salir = False
@@ -177,7 +189,7 @@ def main():
                 herramientas = modificar_herramientas(herramientas)
             case "4":
                 #Elimina herramienta
-                continue
+                herramientas = eliminar_herramienta(herramientas)
             case "5":
                 #Consultar disponibilidad
                 continue
