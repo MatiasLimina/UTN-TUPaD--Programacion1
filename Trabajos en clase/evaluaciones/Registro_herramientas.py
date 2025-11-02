@@ -105,14 +105,13 @@ def cargar_herramientas(herramientas):
         stock = input("Stock: ").strip()
         precio = input("Precio: ").strip()
         aux = {"nombre":nombre,"stock":stock,"precio":precio}
-        if any(e["nombre"] == aux["nombre"] for e in herramientas):
-            print(f"La herramienta {aux['nombre']} ya se encuentra en el sistema")
+        aux = verificar_linea(aux,len(herramientas)+1)
+        #any(e["nombre"] == aux["nombre"] for e in herramientas)
+        if aux is False:
+            print("Valores ingresados invalidos")
+            #print(f"La herramienta {aux['nombre']} ya se encuentra en el sistema")
             continue
         else:
-            # # Pasamos la lista 'herramientas' para que agregar_linea funcione
-            # agregar_linea(aux, herramientas)
-            # # Actualizamos la lista en memoria para la siguiente iteración
-            # herramientas = leer_archivo()
             herramientas.append(aux)
             modificar_archivo(herramientas)
             print(f"Herramienta ´{aux["nombre"]}´ cargada con exito!")
@@ -120,6 +119,48 @@ def cargar_herramientas(herramientas):
 def mostrar_herramientas(herramientas):
     for i in herramientas:
         print(f"Herramienta:{i["nombre"]} Stock: {i["stock"]} Precio: ${i["precio"]}")
+#Modificar herramienta
+def modificar_herramientas(herramientas):
+    while True:
+        print("\n--- Modificar Herramienta ---")
+        if not herramientas:
+            print("No hay herramientas para modificar.")
+            return herramientas
+        print("Herramientas disponibles:")
+        mostrar_herramientas(herramientas)
+        
+        nombre_modificar = input("Ingrese el nombre de la herramienta a modificar (o presione Enter para volver): ").strip().capitalize()
+        if not nombre_modificar:
+            break
+
+        herramienta_encontrada = None
+        indice_herramienta = -1
+        for i, h in enumerate(herramientas):
+            if h["nombre"] == nombre_modificar:
+                herramienta_encontrada = h
+                indice_herramienta = i
+                break
+
+        if herramienta_encontrada:
+            print(f"\nModificando: {herramienta_encontrada['nombre']} (Stock: {herramienta_encontrada['stock']}, Precio: ${herramienta_encontrada['precio']})")
+            
+            datos_nuevos = herramienta_encontrada.copy()
+            datos_nuevos["stock"] = input("Ingrese el nuevo stock: ").strip()
+            datos_nuevos["precio"] = input("Ingrese el nuevo precio: ").strip()
+
+            herramienta_validada = verificar_linea(datos_nuevos, indice_herramienta + 1)
+
+            if herramienta_validada is not False:
+                herramientas[indice_herramienta] = herramienta_validada
+                modificar_archivo(herramientas)
+                print("¡Herramienta modificada con éxito!")
+            else:
+                print("Modificación cancelada debido a valores inválidos.")
+        else:
+            print(f"ERROR: La herramienta '{nombre_modificar}' no fue encontrada.")
+    
+    return herramientas
+
 def main():
     herramientas=leer_archivo()
     salir = False
@@ -133,7 +174,7 @@ def main():
                 mostrar_herramientas(herramientas)
             case "3":
                 #Modificar herramientas
-                continue
+                herramientas = modificar_herramientas(herramientas)
             case "4":
                 #Elimina herramienta
                 continue
