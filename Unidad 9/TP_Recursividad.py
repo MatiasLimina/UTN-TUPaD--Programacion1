@@ -129,7 +129,6 @@ def suma_digitos(n: int) -> int:
 
 
 print("\n--- Suma de Dígitos Recursiva ---")
-numero_a_sumar = int(input("Ingrese un número entero positivo para sumar sus dígitos: "))
 while True:
     try:
         numero_a_sumar = int(input("Ingrese un número entero positivo para sumar sus dígitos: "))
@@ -167,3 +166,31 @@ while True:
         print("Error: Entrada inválida. Por favor, ingrese un número entero.")
 
 #Ejercicio 8
+def contar_digito(numero: int, digito: int) -> int:
+    # Caso base: si el número es 0
+    if numero == 0:
+        return 1 if digito == 0 else 0
+
+    # Caso recursivo
+    ultimo_digito = numero % 10
+    resto_del_numero = numero // 10
+
+    if ultimo_digito == digito:
+        return 1 + contar_digito(resto_del_numero, digito)
+    else:
+        return contar_digito(resto_del_numero, digito)
+
+while True:
+    try:
+        num_ent = int(input("Ingrese el número entero"))
+        digito = int(input("Ingrese un digito"))
+        if num_ent < 0:
+            print("Error: El número debe ser un entero positivo.")
+        elif digito < 0 or digito > 9:
+            print("El digitio debe encontrarse entre 0 y 9")
+        else:
+            break
+    except ValueError:
+        print("ERROR: Ingrese un numero entero")
+
+print(f"El digito {digito} aparece {contar_digito(num_ent,digito)} veces en el numero {num_ent}")
