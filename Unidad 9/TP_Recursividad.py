@@ -49,4 +49,28 @@ while True:
 mostrar_serie_fibonacci(posicion_usuario)
 
 #Ejercicio 3
+def potencia_recursiva(base, exponente):
+    if exponente == 0:
+        return 1
+    elif exponente < 0:
+        print("Advertencia: La fórmula dada es más adecuada para exponentes no negativos.")
+        return 1 / potencia_recursiva(base, -exponente)
+    else:
+        return base * potencia_recursiva(base, exponente - 1)
+
+
+print("\n--- Cálculo de Potencia Recursiva ---")
+while True:
+    try:
+        base_usuario = float(input("Ingrese la base (un número): "))
+        exponente_usuario = int(input("Ingrese el exponente (un entero no negativo): "))
+        if exponente_usuario < 0:
+            print("Error: El exponente debe ser un entero no negativo para esta implementación directa de la fórmula.")
+        else:
+            resultado = potencia_recursiva(base_usuario, exponente_usuario)
+            print(f"El resultado de {base_usuario} elevado a la {exponente_usuario} es: {resultado}")
+            break
+    except ValueError:
+        print("Error: Entrada inválida. Asegúrese de ingresar números válidos.")
+
 
