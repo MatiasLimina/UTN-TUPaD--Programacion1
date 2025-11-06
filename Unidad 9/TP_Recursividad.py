@@ -73,4 +73,30 @@ while True:
     except ValueError:
         print("Error: Entrada inválida. Asegúrese de ingresar números válidos.")
 
+#Ejercicio 5
+
+def decimal_a_binario_recursivo(n):
+    if n == 0:
+        return "0"  # Caso base: 0 en decimal es "0" en binario
+    elif n == 1:
+        return "1"  # Caso base: 1 en decimal es "1" en binario
+    else:
+        resto = n % 2
+        cociente = n // 2
+        return decimal_a_binario_recursivo(cociente) + str(resto)
+
+# Ejemplo de uso
+
+while True:
+    try:
+        numero_decimal = int(input("Ingrese un numero entero para saber su binario"))
+        if numero_decimal < 0:
+            print("Ingrese un numero entero positivo")
+        else:
+            break
+    except ValueError:
+        print("Ingrese un numero entero positivo")
+
+binario_resultante = decimal_a_binario_recursivo(numero_decimal)
+print(f"El número {numero_decimal} en binario es: {binario_resultante}")
 
