@@ -143,3 +143,27 @@ resultado_suma_digitos = suma_digitos(numero_a_sumar)
 print(f"La suma de los dígitos de {numero_a_sumar} es: {resultado_suma_digitos}")
 
 #Ejercicio 7
+def contar_bloques(n: int) -> int:
+    # Caso base: Si solo hay un nivel (n=1), se necesita 1 bloque.
+    if n == 1:
+        return 1
+    # Caso recursivo: Suma los bloques del nivel actual (n) con los bloques
+    # de la pirámide construida con un nivel menos (n-1).
+    else:
+        return n + contar_bloques(n - 1)
+
+
+print("\n--- Calculadora de Bloques de Pirámide Recursiva ---")
+while True:
+    try:
+        nivel_base = int(input("Ingrese el número de bloques en el nivel más bajo de la pirámide (entero positivo): "))
+        if nivel_base <= 0:
+            print("Error: El número de bloques debe ser un entero positivo.")
+        else:
+            total_bloques = contar_bloques(nivel_base)
+            print(f"Para una pirámide con {nivel_base} bloques en la base, se necesitan un total de {total_bloques} bloques.")
+            break
+    except ValueError:
+        print("Error: Entrada inválida. Por favor, ingrese un número entero.")
+
+#Ejercicio 8
