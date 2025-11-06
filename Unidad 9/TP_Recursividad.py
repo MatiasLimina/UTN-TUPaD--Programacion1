@@ -99,3 +99,23 @@ while True:
 binario_resultante = decimal_a_binario_recursivo(numero_decimal)
 print(f"El número {numero_decimal} en binario es: {binario_resultante}")
 
+#Ejercicio 5
+def es_palindromo(palabra: str) -> bool:
+    # Caso base: Una palabra vacía o de un solo carácter es un palíndromo.
+    if len(palabra) <= 1:
+        return True
+    # Caso recursivo: Compara el primer y último carácter.
+    # Si son iguales, llama recursivamente a la función con la subcadena
+    # que excluye el primer y último carácter.
+    else:
+        return palabra[0] == palabra[-1] and es_palindromo(palabra[1:-1])
+
+
+print("\n--- Verificador de Palíndromos Recursivo ---")
+palabra_usuario = input("Ingrese una palabra (sin espacios ni tildes) para verificar si es un palíndromo: ").lower()
+if es_palindromo(palabra_usuario):
+    print(f"'{palabra_usuario}' ES un palíndromo.")
+else:
+    print(f"'{palabra_usuario}' NO es un palíndromo.")
+
+#Ejercicio 6
