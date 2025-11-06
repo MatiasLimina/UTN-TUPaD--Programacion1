@@ -73,8 +73,7 @@ while True:
     except ValueError:
         print("Error: Entrada inválida. Asegúrese de ingresar números válidos.")
 
-#Ejercicio 5
-
+#Ejercicio 4
 def decimal_a_binario_recursivo(n):
     if n == 0:
         return "0"  # Caso base: 0 en decimal es "0" en binario
