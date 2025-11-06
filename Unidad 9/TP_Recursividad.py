@@ -85,7 +85,7 @@ def decimal_a_binario_recursivo(n):
         return decimal_a_binario_recursivo(cociente) + str(resto)
 
 # Ejemplo de uso
-
+print("--- Transformar numero a binario ---")
 while True:
     try:
         numero_decimal = int(input("Ingrese un numero entero para saber su binario"))
@@ -119,3 +119,27 @@ else:
     print(f"'{palabra_usuario}' NO es un palíndromo.")
 
 #Ejercicio 6
+def suma_digitos(n: int) -> int:
+    if n < 10:
+        return n
+    # Caso recursivo: Suma el último dígito (n % 10) con la suma de los dígitos
+    # del resto del número (n // 10).
+    else:
+        return (n % 10) + suma_digitos(n // 10)
+
+
+print("\n--- Suma de Dígitos Recursiva ---")
+numero_a_sumar = int(input("Ingrese un número entero positivo para sumar sus dígitos: "))
+while True:
+    try:
+        numero_a_sumar = int(input("Ingrese un número entero positivo para sumar sus dígitos: "))
+        if numero_decimal < 0:
+            print("Ingrese un numero entero positivo")
+        else:
+            break
+    except ValueError:
+        print("Ingrese un numero entero positivo")
+resultado_suma_digitos = suma_digitos(numero_a_sumar)
+print(f"La suma de los dígitos de {numero_a_sumar} es: {resultado_suma_digitos}")
+
+#Ejercicio 7
