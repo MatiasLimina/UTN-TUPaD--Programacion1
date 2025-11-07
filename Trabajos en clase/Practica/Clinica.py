@@ -111,11 +111,46 @@ def mostrar_especialidades(clinica):
 def consultar_disponibilidad(clinica):
     print("Consulta de disponibilidad")
     consulta = input("Ingrese la especialidad: ").lower().strip()
+    encontrado = False
     for i in clinica:
         if consulta == i["especialidad"]:
+            encontrado = True
             print(f"Especialidad: {i["especialidad"]}/ Turnos: {i["turnos"]}")
+    if encontrado == False:
+        print(f"La especialidad {consulta} no se encuentra en el sistema ")
+
+def listar_agotados(clinica):
+    agotados = []
+    print("Especialidades con turnos agotados")
+    for i in clinica:
+        if i["turnos"] == 0:
+            agotados.append(i)
+    mostrar_especialidades(agotados)
+
+def agregar_especialidad (clinica):
+    nuevo = input("Ingrese el nombre de la especialidad ").strip().lower()
+    nuevo = verificar_duplicados(nuevo)
+    if nuevo is False:
+        print("Esa especialidad ya se encuentra registrada")
+        print("El ingreso sera ignorado")
+    else:
+        while True:
+            try:
+                n_turno = int(input("Ingrese la cantidad de turnos "))
+                if n_turno < 0:
+                    print("Ingrese un numero positivo")
+                else:
+                    break
+            except ValueError:
+                print("Debe ingresar un numero entero")
+        n_ingreso = {"especialidad":nuevo,"turnos":n_turno}
+        n_ingreso = verificar_linea(n_ingreso)
+        if n_ingreso is False:
+            print("El ingreso sera ignorado")
         else:
-            print(f"La especialidad {consulta} no se encuentra en el sistema ")
+            clinica.append(n_ingreso)
+            modificar_archivo(clinica)
+            print("Ingreso exitoso!")
 
 def main():
     clinica = leer_archivo()
@@ -148,10 +183,10 @@ def main():
                 consultar_disponibilidad(clinica)
             case "5":
                 #Listar agotados
-                continue
+                listar_agotados(clinica)
             case "6":
                 #Agregar titulo
-                continue
+                agregar_especialidad(clinica)
             case "7":
                 #Actualizar ejemplares venta/devolucion
                 continue
