@@ -3,7 +3,6 @@ import os
 ruta_absoluta = os.path.dirname(os.path.abspath(__file__))
 RUTA_ARCHIVO = os.path.join(ruta_absoluta,"biblioteca.csv")
 ENCABEZADOS = ["titulo","cantidad"]
-
 def crear_archivo():
     if not os.path.exists(RUTA_ARCHIVO):
         try:
@@ -29,15 +28,17 @@ def leer_archivo():
             return lista
     except IOError:
         print("ERROR al leer el archivo")
+
 def validar_duplicado(nombre,biblioteca):
     if any(t["titulo"] == nombre for t in biblioteca):
         print("Este titulo ya se encuentra en el sistema")
         return False
     else:
         return nombre
+
 def validar_linea(linea):
     for campo in linea:
-        if campo == "":
+        if linea[campo] == "":
             print("ERROR: no pueden haber campos vacios")
             return False
     
@@ -69,24 +70,17 @@ def ingresar_titulos(biblioteca):
         nombre = input("Ingrese el nombre del libro a agregar ").strip().lower()
         nombre=validar_duplicado(nombre,biblioteca)
         if nombre is False:
-            print("Este ingreso sera ignorado")
+            print("Este ingreso sera ignorado por que ya se encuentra en el sistema")
         else:
             cantidad = 0
             nueva_linea = {"titulo":nombre,"cantidad":cantidad}
-            linea_verificada = validar_linea(nueva_linea,biblioteca)
+            linea_verificada = validar_linea(nueva_linea)
             if linea_verificada is False:
                 print("ERROR DE VERIFICACION: el nuevo ingreso sera ignorado")
             else:
                 biblioteca.append(linea_verificada)
                 modificar_archivo(biblioteca)
                 print(f"Ingreso nuevo correcto")
-
-def mostrar_catalogo(biblioteca):
-    if not biblioteca:
-        print("No hay titulos en el catalogo")
-    else:
-        for i in biblioteca:
-            print(f"Titulo: {i["titulo"]} / Cantidad: {i["cantidad"]}")
 
 def ingresar_ejemplares(biblioteca):
     if not biblioteca:
@@ -96,13 +90,23 @@ def ingresar_ejemplares(biblioteca):
             print(f"Titulo: {titulo["titulo"]} Cantidad: {titulo["cantidad"]}")
             while True:
                 try:
-                    cantidad_nueva = int(input("Ingrese la cantidad actualizada..."))
-                    break
+                    cantidad_nueva = int(input("Ingrese la cantidad de ejemplares que desea añadir... "))
+                    if cantidad_nueva < 0:
+                        print("Debe ingresar un numero positivo")
+                    else:
+                        break
                 except ValueError:
                     print("Debe ingresar un numero entero")
-            titulo["cantidad"] = cantidad_nueva
+            titulo["cantidad"] += cantidad_nueva
             print("Valor actualizado con exito")
         modificar_archivo(biblioteca)
+
+def mostrar_catalogo(biblioteca):
+    if not biblioteca:
+        print("No hay titulos en el catalogo")
+    else:
+        for i in biblioteca:
+            print(f"Titulo: {i["titulo"]} / Cantidad: {i["cantidad"]}")
 
 def consultar_disponibilidad(biblioteca):
     if not biblioteca:
@@ -124,11 +128,8 @@ def listar_agotados(biblioteca):
     else:
         lista_agotados=[]
         for t in biblioteca:
-            print(t)
             if t["cantidad"] == 0:
-                print("hola")
                 lista_agotados.append(t)
-        print(lista_agotados)
         if not lista_agotados:
             print("No hay libros agotados")
         else:
@@ -142,13 +143,13 @@ def agregar_titulo_nuevo(biblioteca):
         nombre = input("Ingrese el nuevo nombre: ").strip().lower()
         nombre = validar_duplicado(nombre,biblioteca)
         if nombre is False:
-            print("Se cancela la operacion")
+            print("Este ingreso sera ignorado por que ya se encuentra en el sistema")
         else:
             cantidad = input("Ingrese la cantidad de ejemplares: ")
             nuevo = {"titulo":nombre,"cantidad":cantidad}
             nuevo = validar_linea(nuevo)
             if nuevo is False:
-                print("ERROR DE VERIFICACION")
+                print("Ingreso cancelado")
             else:
                 biblioteca.append(nuevo)
                 modificar_archivo(biblioteca)
@@ -159,10 +160,13 @@ def venta_devolucion(biblioteca):
     else:
         salir = False
         while not salir:
-            print("Que desea hacer? Venta o Devolucion: V/D o Eliga S para salir")
+            print("Que desea hacer?")
+            print("Presione ¨V¨ para Vender")
+            print("Presione ¨D¨ para Devolver")
+            print("Presione ¨S¨ para Salir")
             opc = input("Elija una opcion... ").strip().lower()
             match opc:
-                case "v":
+                case "v": #Venta
                     print("Usted va a vender un ejemplar, le mostraremos la lista...")
                     mostrar_catalogo(biblioteca)
                     venta = input("Que libro desea vender?").strip().lower()
@@ -170,19 +174,26 @@ def venta_devolucion(biblioteca):
                     for t in biblioteca:
                         if t["titulo"] == venta:
                             encontrado = True
+                            print("Libro encontrado!")
+                            print(f"Titulo: {t["titulo"]} / Cantidad: {t["cantidad"]}")
                             while True:
-                                try:
+                                try:#CUantos libros seran vendidos
                                     cantidad_venta=int(input("Ingrese la cantidad que desea vender"))
-                                    break
+                                    if cantidad_venta < 0:
+                                        print("Debe ingresar un numero positivo")
+                                    else:
+                                        break
                                 except ValueError:
                                     print("Debe ingresar un numero entero")
-                            if cantidad_venta > t["cantidad"]:
-                                print("No hay ejemplares suficientes")
-                            elif t["cantidad"] == 0:
-                                print("No hay ejemplares suficientes")
+                            if cantidad_venta > t["cantidad"]:#Si la cantidad q se quieren vender es mayor a la existente
+                                print("Operacion cancelada, no hay ejemplares suficientes")
+                            elif t["cantidad"] == 0:#Si la cantidad en el sistema es cero
+                                print("Operacion cancelada, no hay ejemplares suficientes")
                             elif cantidad_venta <= t["cantidad"]:
                                 t["cantidad"]-=cantidad_venta
                                 modificar_archivo(biblioteca)
+                                print("Valor actualizado:")
+                                print(f"Titulo: {t["titulo"]} / Cantidad: {t["cantidad"]}")
                     if encontrado is False:
                         print("Libro no encontrado")
                 case "d":
@@ -192,14 +203,21 @@ def venta_devolucion(biblioteca):
                     encontrado=False
                     for t in biblioteca:
                         if t["titulo"] == devolucion:
+                            print("Libro encontrado!")
+                            print(f"Titulo: {t["titulo"]} / Cantidad: {t["cantidad"]}")
                             encontrado=True
                             while True:
                                 try:
                                     cantidad_devolucion=int(input("Ingrese la cantidad que desea devolver"))
-                                    break
+                                    if cantidad_devolucion < 0:
+                                        print("Debe ingresar un numero positivo")
+                                    else:
+                                        break
                                 except ValueError:
                                     print("Debe ingresar un numero entero")
                             t["cantidad"] += cantidad_devolucion
+                            print("Valor actualizado:")
+                            print(f"Titulo: {t["titulo"]} / Cantidad: {t["cantidad"]}")
                             modificar_archivo(biblioteca)
                     if encontrado is False:
                         print("Ese libro no esta en el catalogo")
@@ -207,6 +225,8 @@ def venta_devolucion(biblioteca):
                     salir=True
                 case _:
                     print("Opcion invalida")
+
+
 
 def main():
     biblioteca = leer_archivo()
